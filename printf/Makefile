@@ -21,27 +21,37 @@ SRCFILES := ft_printf.c
 OBJECTFILES := $(SRCFILES:.c=.o)
 
 #BONUSOBJECTFILES := $(BONUSFILES:.c=.o)
+LIBFT = libft
+LIBFTA = libft/libft.a
 
 NAME := libftprintf.a
 
 all: ${NAME}
 
-${NAME}: ${OBJECTFILES}
+#	FIND OUT HOW TO INCLUDE LIBFT ???
+
+${NAME}: ${OBJECTFILES} ${LIBFT}
 	ar rcs $@ ${OBJECTFILES}
 
-${OBJECTFILES}: ${SRCFILES}
-	cc -g -c $(CFLAGS) ${SRCFILES}
+${LIBFTA} :
+	${MAKE} -C ${LIBFT} bonus
+
+${OBJECTFILES}: ${SRCFILES} ${LIBFTA}
+	cc -g -c ${CFLAGS} ${SRCFILES}
+# -L ${LIBFT} -lft
 
 ${BONUSOBJECTFILES}: ${BONUSFILES}
-	cc -g -c $(CFLAGS) ${BONUSFILES}
+	cc -c $(CFLAGS) ${BONUSFILES}
 
-bonus: ${NAME} ${BONUSOBJECTFILES}
-	ar rs ${NAME} ${BONUSOBJECTFILES}
+#bonus: ${NAME} ${BONUSOBJECTFILES}
+#	ar rs ${NAME} ${BONUSOBJECTFILES}
 
 clean:
+	${MAKE} -C ${LIBFT} clean
 	rm -f ${OBJECTFILES}
 
 fclean: clean
+	${MAKE} -C ${LIBFT} fclean
 	rm -f $(NAME)
 	
 re: fclean all

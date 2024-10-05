@@ -10,9 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libftprintf.h>
+#include "libftprintf.h"
 
-int	printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
+	printf("%s" ,format);
 	return (0);
+}
+
+int	main(void)
+{
+	ft_printf("my format");
 }
