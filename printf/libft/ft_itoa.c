@@ -37,7 +37,7 @@ static void	set_mem(char *pointer, int n, int index)
 	pointer[index] = '0' + last_digit;
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(long n)
 {
 	char	*pointer;
 	int		last_digit;

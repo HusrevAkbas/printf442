@@ -23,15 +23,27 @@
 		5- convertion identifiers			cspdiuxX%
 */
 
-char	*get_flags()
+const char	*get_flags()
 {
 	return ("-0. #+");
 }
-char	*set_flags(char *checkpoint)
+const char	*get_convertion_specifiers()
 {
-	(void) checkpoint;
-	//while (ft_strchr())
-	return NULL;
+	return ("cspdiuxX");
+}
+char	*set_flags(char **checkpoint)
+{
+	char	*flags;
+	int		i;
+	flags = ft_calloc(50, 1);
+	i = 0;
+	while ( **checkpoint && ft_strchr(get_convertion_specifiers(), **checkpoint))
+	{
+		flags[i] = **checkpoint;
+		i++;
+		*checkpoint += 1;
+	}
+	return flags;
 }
 
 void	print_some(const char *format, char *checkpoint)
@@ -42,28 +54,57 @@ void	print_some(const char *format, char *checkpoint)
 	free(sub);
 }
 
+int	check_str_has_char(char *flags, const char *con_spec)
+{
+	int	i;
+
+	i = 0;
+	while (flags[i])
+	{
+		if (ft_strchr(con_spec, flags[i]))
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 int	ft_printf(const char *format, ...)
 {
-	//va_list	args;
+	va_list	args;
 	int		res;
 	char	*flags;
 	char	*checkpoint;
+	char	*substr;
 
+	if (!format)
+		return (-1);
+	res = 0;
+	va_start(args, format);
 	while (*format)
 	{
-		
-		if (!format)
-			return (-1);
-		res = 0;
 		checkpoint = ft_strchr(format, '%');
-		if (checkpoint[1] == '%')
+
+		if (!checkpoint)
 		{
-			print_some(format, &checkpoint[1]);
-			format = &checkpoint[2];
+			ft_putstr_fd((char *) format, 1);
+			return res + ft_strlen(format);
+		}
+		substr = ft_substr(format, 0, checkpoint - format);
+		ft_putstr_fd(substr, 1);
+		res += ft_strlen(substr);
+		free(substr);
+		checkpoint++;
+		if (*checkpoint == '%')
+		{
+			print_some(format, checkpoint);
+			format = checkpoint + 1;
 		}
 		else
 		{
-			flags = set_flags(checkpoint);
+			flags = set_flags(&checkpoint);
+			if (check_str_has_char(flags, get_convertion_specifiers()))
+				ft_handle_convertion_identifiers(flags, &args, &res);
+			format = checkpoint;
 		}
 		// printf("char at checkpoint: %c\n", checkpoint != NULL ? *checkpoint : 'N');
 		// printf("checkpoint - format: %ld\n", checkpoint - format);
@@ -78,6 +119,8 @@ int	ft_printf(const char *format, ...)
 		//check conversion specifier
 		//convert
 		//write
+	free(flags);
+	va_end(args);
 	}
 	return (res);
 }

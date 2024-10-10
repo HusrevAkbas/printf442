@@ -12,7 +12,7 @@
 
 CFLAGS := -Wall -Wextra -Werror
 
-SRCFILES := ft_printf.c
+SRCFILES := ft_printf.c ft_handle_convertion_identifiers.c
 
 #BONUSFILES := 
 
@@ -41,8 +41,8 @@ ${OBJECTFILES} : ${SRCFILES} ${LIBFTA}
 	cc -g -c ${CFLAGS} ${SRCFILES}
 # -L ${LIBFT} -lft
 
-${BONUSOBJECTFILES} : ${BONUSFILES}
-	cc -c $(CFLAGS) ${BONUSFILES}
+#${BONUSOBJECTFILES} : ${BONUSFILES}
+#	cc -c $(CFLAGS) ${BONUSFILES}
 
 #bonus: ${NAME} ${BONUSOBJECTFILES}
 #	ar rs ${NAME} ${BONUSOBJECTFILES}

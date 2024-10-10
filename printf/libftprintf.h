@@ -14,3 +14,4 @@
 #include <stdio.h>
 
 int ft_printf(const char *format, ...);
+void ft_handle_convertion_identifiers(char *flags, va_list *args, int *res);

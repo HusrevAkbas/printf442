@@ -18,16 +18,6 @@ size_t	ft_strlen(const char *str)
 
 	length = 0;
 	while (str[length])
-	{
 		length++;
-	}
 	return (length);
 }
-
-/*
-int	main()
-{
-	char	string[] =  "Solar System";
-	size_t length = ft_strlen(string);
-	return 0;
-}*/

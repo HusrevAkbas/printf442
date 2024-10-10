@@ -20,16 +20,13 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	size_t	div;
 
 	if (nmemb == 0 || size == 0)
-		return ((void *) malloc(0));
+		return (0);// ((void *) malloc(0));
 	div = ULONG_MAX / nmemb;
 	if (div < size)
 		return (0);
 	pointer = (char *) malloc(nmemb * size);
 	if (pointer == NULL)
-	{
-		free(pointer);
 		return (NULL);
-	}
 	i = 0;
 	while (i < size * nmemb)
 		pointer[i++] = 0;

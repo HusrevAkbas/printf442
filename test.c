@@ -2,15 +2,17 @@
 
 int main(void)
 {
-	// int	resft;
-	// int	resor;
-
-	ft_printf("my format%%   %%");
-
+	int	resft;
+	//int	resor;
+	char	*string = "char pointer";
+	resft = ft_printf("some text and a char %c\n", 67);
+	resft = ft_printf("some text and a number %d\n", -6732424);
+	resft = ft_printf("some text and a number %s\n", "text as a parameter");
+	resft = ft_printf("some text and a number %p\n", string);
 	// printf("\n1 - START: NULL\n");
 	// resft = ft_printf(NULL);
 	// resor = printf(NULL);
-	// printf("ft_res: %7d | %-7d :or_res %s\n", resft, resor, (resft == resor) ? "PASS" : "FAIL");
+	//printf("ft_res: %7d | %-7d :or_res %s\n", resft, resor, (resft == resor) ? "PASS" : "FAIL");
 	// printf("1 -  END : NULL\n");
 
 	// printf("\n2 - START: %%\n");
