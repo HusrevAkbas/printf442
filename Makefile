@@ -12,7 +12,6 @@
 
 CFLAGS := -Wall -Wextra
 
-LIBFT := libft
 PRINTF := printf
 
 TARGET := test
@@ -20,21 +19,25 @@ TARGET := test
 SRC := $(wildcard test*/*.c)# $(wildcard tests_bonus/*.c)
 
 all:
-	$(MAKE) -C ${LIBFT} bonus
+	$(MAKE) -C ${PRINTF} all
 #	valgrind -s --leak-check=full --show-leak-kinds=all 
-	cc -g ${CFLAGS} ${SRC} test.c -L ${PRINTF} -lftprintf -lbsd -o ${TARGET}
+	cc -g ${CFLAGS} ${SRC} test.c -L ${PRINTF} -lftprintf -o ${TARGET}
 	./${TARGET}
 
 clean:
-	$(MAKE) -C ${LIBFT} clean
-	rm test
+	$(MAKE) -C ${PRINTF} clean
+	rm -f test
+
+fclean:
+	$(MAKE) -C ${PRINTF} fclean
+	rm -f test
 
 show:
-	$(MAKE) -C ${LIBFT} show
+	$(MAKE) -C ${PRINTF} show
 
 val:
-	${MAKE} -C ${LIBFT} bonus
-	cc -g ${CFLAGS} ${SRC} test.c -L ${LIBFT} -lft -lbsd -o ${TARGET}
+	${MAKE} -C ${PRINTF} all
+	cc -g ${CFLAGS} ${SRC} test.c -L ${PRINTF} -lftprintf -o ${TARGET}
 	valgrind -s --leak-check=yes --show-leak-kinds=all --track-origins=yes ./test
 
 run:
