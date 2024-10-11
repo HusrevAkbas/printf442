@@ -15,7 +15,7 @@
 /*
 	1) Each conversion specification is introduced by the character %, and ends
 	with a conversion specifier.
-	2) In between there may be (in this order) 
+	2) In between there may be (in this order)
 		1- zero or more flags,				-0. #+
 		2- an optional minimum field width,	any positiv number
 		3- an optional precision and 		THE '.' FLAG IN 1. RULE
@@ -30,6 +30,14 @@ const char	*get_flags()
 const char	*get_convertion_identifiers()
 {
 	return ("cspdiuxX");
+}
+const char	*get_hex_set_uppercase()
+{
+	return ("0123456789ABCDEF");
+}
+const char	*get_hex_set_lowercase()
+{
+	return ("0123456789abcdef");
 }
 char	*set_flags(char **checkpoint)
 {
@@ -83,8 +91,8 @@ int	ft_printf(const char *format, ...)
 	va_start(args, format);
 	while (*format)
 	{
-		//check % char // f 2 c 2 // f 6 c 6
-		checkpoint = ft_strchr(format, '%'); // f 0 c 1  // f 2 c 5 // f 6 c 9
+		//check %
+		checkpoint = ft_strchr(format, '%');
 
 		if (!checkpoint)
 		{
@@ -94,11 +102,11 @@ int	ft_printf(const char *format, ...)
 		else 
 		{
 		//print until next %
-			substr = ft_substr(format, 0, checkpoint - format); // f 0 c 1 // f 2 c 5 // f 6 c 9
+			substr = ft_substr(format, 0, checkpoint - format);
 			ft_putstr_fd(substr, 1);
 			res += ft_strlen(substr);
 			free(substr);
-			checkpoint++; // f 0 c 2 // f 2 c 6 // f 6 c 10
+			checkpoint++;
 		}
 		if (*checkpoint == '%')
 		{
@@ -109,9 +117,9 @@ int	ft_printf(const char *format, ...)
 		}
 		else
 		{
-			format = checkpoint; // f 2 c 2 // f 6 c 6 // f 11 c 11
+			format = checkpoint;
 			// check flags
-			flags = set_flags(&checkpoint); //flags ""
+			flags = set_flags(&checkpoint);
 			if (check_str_has_char(flags, get_convertion_identifiers()))
 			{
 				ft_handle_convertion_identifiers(flags, &args, &res);
@@ -121,8 +129,6 @@ int	ft_printf(const char *format, ...)
 			{
 				ft_putstr_fd("%", 1);
 				res++;
-				//print_some(format, checkpoint, &res); // f 2 c 2 // f 6 c 6
-				//format = checkpoint;
 			}
 			free(flags);
 		}
