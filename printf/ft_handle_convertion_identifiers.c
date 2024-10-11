@@ -17,6 +17,14 @@ void	ft_handle_convertion_identifiers(char *flags, va_list *args, int *res)
 	char	*str_to_print;
 	char	handle_char[2];
 
+	// WILL BE ADDED IN CONVERTION HANDLERS
+	// check min field
+	// check precision
+	// check length modifier
+	// check conversion specifier
+	// convert
+	// write
+	// DONT FORGET TO COUNT PRINTED CHARS
 	if (ft_strchr(flags, 'c'))
 	{
 		handle_char[0] = va_arg(*args, int);
@@ -51,6 +59,22 @@ void	ft_handle_convertion_identifiers(char *flags, va_list *args, int *res)
 		free(str_to_print);
 	}
 	if (ft_strchr(flags, 'u'))
+	{
+		//WILL BE CONVERTED
+		str_to_print = ft_itoa((long) va_arg(*args, void *));
+		ft_putstr_fd(str_to_print, 1);
+		*res += ft_strlen(str_to_print);
+		free(str_to_print);
+	}
+	if (ft_strchr(flags, 'x'))
+	{
+		//WILL BE CONVERTED
+		str_to_print = ft_itoa((long) va_arg(*args, void *));
+		ft_putstr_fd(str_to_print, 1);
+		*res += ft_strlen(str_to_print);
+		free(str_to_print);
+	}
+	if (ft_strchr(flags, 'X'))
 	{
 		//WILL BE CONVERTED
 		str_to_print = ft_itoa((long) va_arg(*args, void *));

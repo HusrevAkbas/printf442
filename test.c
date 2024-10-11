@@ -5,10 +5,21 @@ int main(void)
 	int	resft;
 	//int	resor;
 	char	*string = "char pointer";
-	resft = ft_printf("some text and a char %c\n", 67);
-	resft = ft_printf("some text and a number %d\n", -6732424);
-	resft = ft_printf("some text and a number %s\n", "text as a parameter");
-	resft = ft_printf("some text and a number %p\n", string);
+	resft = ft_printf("some text and a char: %c\n", 67);
+	printf("restft: %i\n", resft);
+	resft = ft_printf("some text and a number: %d\n", -6732424);
+	printf("restft: %i\n", resft);
+	resft = ft_printf("some text and a string: %s\n", "text as a parameter");
+	printf("restft: %i\n", resft);
+	resft = ft_printf("some text and a poirter as long: %p\n", "text as a parameter");
+	printf("restft: %i\n", resft);
+	resft = ft_printf("some text and a nothing: %a\n", string);
+	printf("restft: %i\n", resft);
+	resft = ft_printf("not identifiers format 0%a34%H78%%\n", string);
+	printf("restft: %i\n", resft);
+	resft = ft_printf("one identifier between not identifiers 0%a34%sH78%%\n", "0000");
+	printf("restft: %i\n", resft);
+
 	// printf("\n1 - START: NULL\n");
 	// resft = ft_printf(NULL);
 	// resor = printf(NULL);

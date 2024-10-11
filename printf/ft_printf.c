@@ -27,7 +27,7 @@ const char	*get_flags()
 {
 	return ("-0. #+");
 }
-const char	*get_convertion_specifiers()
+const char	*get_convertion_identifiers()
 {
 	return ("cspdiuxX");
 }
@@ -37,7 +37,7 @@ char	*set_flags(char **checkpoint)
 	int		i;
 	flags = ft_calloc(50, 1);
 	i = 0;
-	while ( **checkpoint && ft_strchr(get_convertion_specifiers(), **checkpoint))
+	while ( **checkpoint && ft_strchr(get_convertion_identifiers(), **checkpoint))
 	{
 		flags[i] = **checkpoint;
 		i++;
@@ -46,11 +46,12 @@ char	*set_flags(char **checkpoint)
 	return flags;
 }
 
-void	print_some(const char *format, char *checkpoint)
+void	print_some(const char *format, char *checkpoint, int *res)
 {
 	char *sub;
 	sub = ft_substr(format, 0, checkpoint - format);
 	ft_putstr_fd(sub, 1);
+	*res += ft_strlen(sub);
 	free(sub);
 }
 
@@ -82,44 +83,51 @@ int	ft_printf(const char *format, ...)
 	va_start(args, format);
 	while (*format)
 	{
-		checkpoint = ft_strchr(format, '%');
+		//check % char // f 2 c 2 // f 6 c 6
+		checkpoint = ft_strchr(format, '%'); // f 0 c 1  // f 2 c 5 // f 6 c 9
 
 		if (!checkpoint)
 		{
 			ft_putstr_fd((char *) format, 1);
 			return res + ft_strlen(format);
 		}
-		substr = ft_substr(format, 0, checkpoint - format);
-		ft_putstr_fd(substr, 1);
-		res += ft_strlen(substr);
-		free(substr);
-		checkpoint++;
+		else 
+		{
+		//print until next %
+			substr = ft_substr(format, 0, checkpoint - format); // f 0 c 1 // f 2 c 5 // f 6 c 9
+			ft_putstr_fd(substr, 1);
+			res += ft_strlen(substr);
+			free(substr);
+			checkpoint++; // f 0 c 2 // f 2 c 6 // f 6 c 10
+		}
 		if (*checkpoint == '%')
 		{
-			print_some(format, checkpoint);
-			format = checkpoint + 1;
+			ft_putstr_fd("%", 1);
+			res++;
+			checkpoint++;
+			format = checkpoint;
 		}
 		else
 		{
-			flags = set_flags(&checkpoint);
-			if (check_str_has_char(flags, get_convertion_specifiers()))
+			format = checkpoint; // f 2 c 2 // f 6 c 6 // f 11 c 11
+			// check flags
+			flags = set_flags(&checkpoint); //flags ""
+			if (check_str_has_char(flags, get_convertion_identifiers()))
+			{
 				ft_handle_convertion_identifiers(flags, &args, &res);
-			format = checkpoint;
+				format = checkpoint;
+			}
+			else
+			{
+				ft_putstr_fd("%", 1);
+				res++;
+				//print_some(format, checkpoint, &res); // f 2 c 2 // f 6 c 6
+				//format = checkpoint;
+			}
+			free(flags);
 		}
 		// printf("char at checkpoint: %c\n", checkpoint != NULL ? *checkpoint : 'N');
 		// printf("checkpoint - format: %ld\n", checkpoint - format);
-
-		
-		//check % char
-		//print until %
-		//check flags
-		//check min field
-		//check precision
-		//check length modifier
-		//check conversion specifier
-		//convert
-		//write
-	free(flags);
 	va_end(args);
 	}
 	return (res);
