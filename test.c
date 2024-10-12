@@ -3,22 +3,28 @@
 int main(void)
 {
 	int	resft;
-	//int	resor;
+	int	resor;
 	char	*string = "char pointer";
-	resft = ft_printf("some text and a char: %c\n", 67);
-	printf("restft: %i\n", resft);
-	resft = ft_printf("some text and a number: %d\n", -6732424);
-	printf("restft: %i\n", resft);
-	resft = ft_printf("some text and a string: %s\n", "text as a parameter");
-	printf("restft: %i\n", resft);
-	resft = ft_printf("some text and a poirter as long: %p\n", "text as a parameter");
-	printf("restft: %i\n", resft);
-	resft = ft_printf("some text and a nothing: %a\n", string);
-	printf("restft: %i\n", resft);
-	resft = ft_printf("not identifiers format 0%a34%H78%%\n", string);
-	printf("restft: %i\n", resft);
-	resft = ft_printf("one identifier between not identifiers 0%a34%sH78%%\n", "0000");
-	printf("restft: %i\n", resft);
+	// resft = ft_printf("some text and a char: %c\n", 67);
+	// printf("restft: %i\n", resft);
+	// resft = ft_printf("some text and a number: %d\n", -6732424);
+	// printf("restft: %i\n", resft);
+	// resft = ft_printf("some text and a string: %s\n", "text as a parameter");
+	// printf("restft: %i\n", resft);
+	// resft = ft_printf("some text and a poirter as long: %p\n", "text as a parameter");
+	// printf("restft: %i\n", resft);
+	// resft = ft_printf("some text and a nothing: %a\n", string);
+	// printf("restft: %i\n", resft);
+	// resft = ft_printf("not identifiers format 0%a34%H78%%\n", string);
+	// printf("restft: %i\n", resft);
+	resft = ft_printf("one identifier between not identifiers 034%sH78%%\n", "0000");
+	printf("resft: %i\n", resft);
+	resor = printf("one identifier between not identifiers 034%sH78%%\n", "0000");
+	printf("resor: %i\n", resor);
+	resft = ft_printf("pointer identifier %p\n", string);
+	printf("resft: %i\n", resft);
+	resor = printf("pointer identifier %p\n", string);
+	printf("resor: %i\n", resor);
 
 	// printf("\n1 - START: NULL\n");
 	// resft = ft_printf(NULL);

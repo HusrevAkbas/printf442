@@ -12,7 +12,7 @@
 
 CFLAGS := -Wall -Wextra -Werror
 
-SRCFILES := ft_printf.c ft_handle_convertion_identifiers.c ft_itobase.c
+SRCFILES := ft_printf.c ft_handle_convertion_identifiers.c ft_itobase.c ft_get_const.c
 
 #BONUSFILES := 
 

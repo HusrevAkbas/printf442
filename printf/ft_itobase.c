@@ -12,7 +12,7 @@
 
 #include "libftprintf.h"
 
-int	is_base_valid(char *base)
+int	is_base_valid(const char *base)
 {
 	int i;
 	int j;
@@ -36,7 +36,7 @@ int	is_base_valid(char *base)
 	return (i);
 }
 
-int	count_chars(long num, char *base)
+int	count_chars(long num, const char *base)
 {
 	int count;
 	long base_length;
@@ -51,7 +51,7 @@ int	count_chars(long num, char *base)
 	return count;
 }
 
-void	ft_put(char *str, long nbr, char *base, int i)
+void	ft_put(char *str, long nbr, const char *base, int i)
 {
 	int remainder;
 	long base_length;
@@ -63,7 +63,7 @@ void	ft_put(char *str, long nbr, char *base, int i)
 	str[i] = base[remainder];
 }
 
-char	*ft_itobase(long nbr, char *base)
+char	*ft_itobase(long nbr, const char *base)
 {
 	char	*str;
 	long	base_length;

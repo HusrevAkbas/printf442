@@ -23,29 +23,14 @@
 		5- convertion identifiers			cspdiuxX%
 */
 
-const char	*get_flags()
-{
-	return ("-0. #+");
-}
-const char	*get_convertion_identifiers()
-{
-	return ("cspdiuxX");
-}
-const char	*get_hex_set_uppercase()
-{
-	return ("0123456789ABCDEF");
-}
-const char	*get_hex_set_lowercase()
-{
-	return ("0123456789abcdef");
-}
 char	*set_flags(char **checkpoint)
 {
 	char	*flags;
 	int		i;
+
 	flags = ft_calloc(50, 1);
 	i = 0;
-	while ( **checkpoint && ft_strchr(get_convertion_identifiers(), **checkpoint))
+	while ( **checkpoint && ft_strchr(get_const("con_id"), **checkpoint))
 	{
 		flags[i] = **checkpoint;
 		i++;
@@ -57,6 +42,7 @@ char	*set_flags(char **checkpoint)
 void	print_some(const char *format, char *checkpoint, int *res)
 {
 	char *sub;
+
 	sub = ft_substr(format, 0, checkpoint - format);
 	ft_putstr_fd(sub, 1);
 	*res += ft_strlen(sub);
@@ -120,7 +106,8 @@ int	ft_printf(const char *format, ...)
 			format = checkpoint;
 			// check flags
 			flags = set_flags(&checkpoint);
-			if (check_str_has_char(flags, get_convertion_identifiers()))
+//printf("const: %s\n", flags);
+			if (check_str_has_char(flags, get_const("con_id")))
 			{
 				ft_handle_convertion_identifiers(flags, &args, &res);
 				format = checkpoint;
