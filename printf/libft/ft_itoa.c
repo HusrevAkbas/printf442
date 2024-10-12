@@ -56,11 +56,10 @@ char	*ft_itoa(long n)
 	pointer = (char *) ft_calloc(count_char + 1, sizeof(char));
 	if (pointer == NULL)
 		return (NULL);
-	if (count_char > 1)
+	if ((count_char > 1 && sign > 0) || (count_char > 2 && sign < 0))
 		set_mem(pointer, (n / 10) * sign, count_char - 2);
 	if (sign < 0)
 		pointer[0] = '-';
 	pointer[count_char -1] = '0' + last_digit;
-	pointer[count_char] = '\0';
 	return (pointer);
 }

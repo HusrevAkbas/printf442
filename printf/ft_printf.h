@@ -12,8 +12,9 @@
 
 #include "libft/libft.h"
 #include <stdio.h>
+#include <stdarg.h>
 
 int ft_printf(const char *format, ...);
-void ft_handle_convertion_identifiers(char *flags, va_list *args, int *res);
+void ft_handle_convertion_identifiers(char *flags, va_list args, int *res);
 char *ft_itobase(long nbr, const char *base);
 const char *get_const(char *set);

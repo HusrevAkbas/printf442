@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	is_base_valid(const char *base)
 {
@@ -90,7 +90,7 @@ char	*ft_itobase(long nbr, const char *base)
 	str = (char *) ft_calloc(char_count + 1, sizeof(char));
 	if (!str)
 		return (NULL);
-	if (char_count > 1)
+	if ((char_count > 1 && is_n > 0) || (char_count > 2 && is_n < 0))
 		ft_put(str, nbr, base, char_count - 2);
 	str[char_count-1] = base[last_d];
 	return (str);

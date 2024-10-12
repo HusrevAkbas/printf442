@@ -1,10 +1,11 @@
-#include "printf/libftprintf.h"
+#include "printf/ft_printf.h"
 
 int main(void)
 {
 	int	resft;
 	int	resor;
-	char	*string = "char pointer";
+	unsigned int ul = 165498755;
+	// char	*string = "char pointer";
 	// resft = ft_printf("some text and a char: %c\n", 67);
 	// printf("restft: %i\n", resft);
 	// resft = ft_printf("some text and a number: %d\n", -6732424);
@@ -17,14 +18,37 @@ int main(void)
 	// printf("restft: %i\n", resft);
 	// resft = ft_printf("not identifiers format 0%a34%H78%%\n", string);
 	// printf("restft: %i\n", resft);
-	resft = ft_printf("one identifier between not identifiers 034%sH78%%\n", "0000");
+	// resft = ft_printf("one identifier between not identifiers 034%sH78%%\n", "0000");
+	// printf("resft: %i\n", resft);
+	// resor = printf("one identifier between not identifiers 034%sH78%%\n", "0000");
+	// printf("resor: %i\n", resor);
+	// resft = ft_printf("pointer identifier %p\n", string);
+	// printf("resft: %i\n", resft);
+	// resor = printf("pointer identifier %p\n", string);
+	// printf("resor: %i\n", resor);
+
+	resft = ft_printf("pointer identifier %u\n", ul);
 	printf("resft: %i\n", resft);
-	resor = printf("one identifier between not identifiers 034%sH78%%\n", "0000");
+	resor = printf("pointer identifier %u\n", ul);
 	printf("resor: %i\n", resor);
-	resft = ft_printf("pointer identifier %p\n", string);
+	resft = ft_printf("pointer identifier %x\n", ul);
 	printf("resft: %i\n", resft);
-	resor = printf("pointer identifier %p\n", string);
+	resor = printf("pointer identifier %x\n", ul);
 	printf("resor: %i\n", resor);
+	resft = ft_printf("pointer identifier %X\n", ul);
+	printf("resft: %i\n", resft);
+	resor = printf("pointer identifier %X\n", ul);
+	printf("resor: %i\n", resor);
+	resft = ft_printf("%c %c %c ", '0', 0, '1');
+	printf("resft: %i\n", resft);
+	resor = printf("%c %c %c ", '0', 0, '1');
+	printf("resor: %i\n", resor);
+	resft = ft_printf("Null %s Null ", NULL);
+	printf("resft: %i\n", resft);
+	resor = printf("Null %s Null ", NULL);
+	printf("resor: %i\n", resor);
+
+	write(1, "VVV", 0);
 
 	// printf("\n1 - START: NULL\n");
 	// resft = ft_printf(NULL);

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 /*
 	1) Each conversion specification is introduced by the character %, and ends
@@ -109,7 +109,7 @@ int	ft_printf(const char *format, ...)
 //printf("const: %s\n", flags);
 			if (check_str_has_char(flags, get_const("con_id")))
 			{
-				ft_handle_convertion_identifiers(flags, &args, &res);
+				ft_handle_convertion_identifiers(flags, args, &res);
 				format = checkpoint;
 			}
 			else
@@ -121,8 +121,8 @@ int	ft_printf(const char *format, ...)
 		}
 		// printf("char at checkpoint: %c\n", checkpoint != NULL ? *checkpoint : 'N');
 		// printf("checkpoint - format: %ld\n", checkpoint - format);
-	va_end(args);
 	}
+	va_end(args);
 	return (res);
 }
 
