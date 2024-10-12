@@ -30,7 +30,7 @@ char	*set_flags(char **checkpoint)
 
 	flags = ft_calloc(50, 1);
 	i = 0;
-	while ( **checkpoint && ft_strchr(get_const("con_id"), **checkpoint))
+	if ( **checkpoint && ft_strchr(get_const("con_id"), **checkpoint))
 	{
 		flags[i] = **checkpoint;
 		i++;

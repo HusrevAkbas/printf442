@@ -68,17 +68,25 @@ void	ft_handle_convertion_identifiers(char *flags, va_list args, int *res)
 	if (ft_strchr(flags, 'p'))
 	{
 		//WILL BE CONVERTED
-		long i = (long) va_arg(args, void *);
-		str_to_print = ft_itobase(i, get_const("hex_low"));
-		ft_putstr_fd("0x", 1);
-		ft_putstr_fd(str_to_print, 1);
-		*res += ft_strlen(str_to_print) + 2;
-		free(str_to_print);
+		unsigned long i = (long) va_arg(args, void *);
+		if (i == 0)
+		{
+			ft_putstr_fd("(nil)", 1);
+			*res += 5;
+		}
+		else
+		{
+			str_to_print = ft_itobase(i, get_const("hex_low"));
+			ft_putstr_fd("0x", 1);
+			ft_putstr_fd(str_to_print, 1);
+			*res += ft_strlen(str_to_print) + 2;
+			free(str_to_print);
+		}
 	}
 	if (ft_strchr(flags, 'u'))
 	{
 		//WILL BE CONVERTED
-		str_to_print = ft_itoa((unsigned int) va_arg(args, unsigned int));
+		str_to_print = ft_itobase((unsigned int) va_arg(args, unsigned int), get_const("decimal"));
 		ft_putstr_fd(str_to_print, 1);
 		*res += ft_strlen(str_to_print);
 		free(str_to_print);

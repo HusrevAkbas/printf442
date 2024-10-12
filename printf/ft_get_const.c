@@ -22,6 +22,8 @@ const char *get_const(char *set)
 		return ("0123456789ABCDEF");
 	if (!ft_strncmp(set, "hex_low", ft_strlen(set)))
 		return ("0123456789abcdef");
+	if (!ft_strncmp(set, "decimal", ft_strlen(set)))
+		return ("0123456789");
 	return ("");
 }
 // const char	*get_flags()

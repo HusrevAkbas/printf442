@@ -1,10 +1,11 @@
 #include "printf/ft_printf.h"
+#include "limits.h"
 
 int main(void)
 {
 	int	resft;
 	int	resor;
-	unsigned int ul = 165498755;
+	unsigned long ul = 165498755;
 	// char	*string = "char pointer";
 	// resft = ft_printf("some text and a char: %c\n", 67);
 	// printf("restft: %i\n", resft);
@@ -27,52 +28,89 @@ int main(void)
 	// resor = printf("pointer identifier %p\n", string);
 	// printf("resor: %i\n", resor);
 
-	resft = ft_printf("pointer identifier %u\n", ul);
-	printf("resft: %i\n", resft);
-	resor = printf("pointer identifier %u\n", ul);
-	printf("resor: %i\n", resor);
-	resft = ft_printf("pointer identifier %x\n", ul);
-	printf("resft: %i\n", resft);
-	resor = printf("pointer identifier %x\n", ul);
-	printf("resor: %i\n", resor);
-	resft = ft_printf("pointer identifier %X\n", ul);
-	printf("resft: %i\n", resft);
-	resor = printf("pointer identifier %X\n", ul);
-	printf("resor: %i\n", resor);
-	resft = ft_printf("%c %c %c ", '0', 0, '1');
-	printf("resft: %i\n", resft);
-	resor = printf("%c %c %c ", '0', 0, '1');
-	printf("resor: %i\n", resor);
-	resft = ft_printf("Null %s Null ", NULL);
-	printf("resft: %i\n", resft);
-	resor = printf("Null %s Null ", NULL);
-	printf("resor: %i\n", resor);
+	// resft = ft_printf("unsigned int identifier %u", ul);
+	// printf(" | resft: %i\n", resft);
+	// resor = printf("unsigned int %u", ul);
+	// printf(" | resor: %i\n", resor);
 
-	write(1, "VVV", 0);
+	resft = ft_printf("unsigned int %u", -10000);
+	printf(" | resft: %i\n", resft);
+	resor = printf("unsigned int %u", -10000);
+	printf(" | resor: %i\n", resor);
 
-	// printf("\n1 - START: NULL\n");
-	// resft = ft_printf(NULL);
-	// resor = printf(NULL);
-	//printf("ft_res: %7d | %-7d :or_res %s\n", resft, resor, (resft == resor) ? "PASS" : "FAIL");
-	// printf("1 -  END : NULL\n");
+	// resft = ft_printf("pointer identifier %x", ul);
+	// printf(" | resft: %i\n", resft);
+	// resor = printf("pointer identifier %x", ul);
+	// printf(" | resor: %i\n", resor);
 
-	// printf("\n2 - START: %%\n");
-	// resft = ft_printf("%%\n");
-	// resor = printf("%%\n");
-	// printf("ft_res: %7d | %-7d :or_res %s\n", resft, resor, (resft == resor) ? "PASS" : "FAIL");
-	// printf("2 -  END : %%\n");
+	// resft = ft_printf("pointer identifier %X", ul);
+	// printf("resft: %i\n", resft);
+	// resor = printf("pointer identifier %X", ul);
+	// printf("resor: %i\n", resor);
 
-	// printf("\n3 - START: some text than%%\n");
-	// resft = ft_printf("some text than%%\n");
-	// resor = printf("some text than%%\n");
-	// printf("ft_res: %7d | %-7d :or_res %s\n", resft, resor, (resft == resor) ? "PASS" : "FAIL");
-	// printf("3 -  END : some text than%%\n");
+	// resft = ft_printf("pointer identifier %x", -1569);
+	// printf("resft: %i\n", resft);
+	// resor = printf("pointer identifier %x", -1569);
+	// printf("resor: %i\n", resor);
 
-	// printf("\n4 - START: some text than a char\n");
-	// resft = ft_printf("text than %c\n\n", 'C');
-	// resor = printf("text than %c\n", 'C');
-	// printf("ft_res: %7d | %-7d :or_res %s\n", resft, resor, (resft == resor) ? "PASS" : "FAIL");
-	// printf("4 -  END : some text than a char\n");
+	// resft = ft_printf("%c %c %c ", '0', 0, '1');
+	// printf("resft: %i\n", resft);
+	// resor = printf("%c %c %c ", '0', 0, '1');
+	// printf("resor: %i\n", resor);
+
+	// resft = ft_printf("Null %s Null ", NULL);
+	// printf("resft: %i\n", resft);
+	// resor = printf("Null %s Null ", NULL);
+	// printf("resor: %i\n", resor);
+	
+	// resft = ft_printf("Null %p Null ", NULL);
+	// printf("resft: %i\n", resft);
+	// resor = printf("Null %p Null ", NULL);
+	// printf("resor: %i\n", resor);
+	
+	// resft = ft_printf("Null %c Null ", 0);
+	// printf("resft: %i\n", resft);
+	// resor = printf("Null %c Null ", 0);
+	// printf("resor: %i\n", resor);
+	
+	// resft = ft_printf("Null %cccc Null ", 77);
+	// printf("resft: %i\n", resft);
+	// resor = printf("Null %cccc Null ", 77);
+	// printf("resor: %i\n", resor);
+
+	// resft = ft_printf("zero %ddd zero ", 0);
+	// printf("resft: %i\n", resft);
+	// resor = printf("zero %ddd zero ", 0);
+	// printf("resor: %i\n", resor);
+	
+	// resft = ft_printf("int %p ", 0);
+	// printf("resft: %i\n", resft);
+	// resor = printf("int %p ", 0);
+	// printf("resor: %i\n", resor);
+
+	// resft = ft_printf("int %p ", LONG_MAX);
+	// printf("resft: %i\n", resft);
+	// resor = printf("int %p ", LONG_MAX);
+	// printf("resor: %i\n", resor);
+
+	// resft = ft_printf("int %p ", LONG_MIN);
+	// printf("resft: %i\n", resft);
+	// resor = printf("int %p ", LONG_MIN);
+	// printf("resor: %i\n", resor);
+
+	// resft = ft_printf("int %p ", LONG_MAX * 2L +1L);
+	// printf("resft: %i\n", resft);
+	// resor = printf("int %p ", LONG_MAX * 2L +1L);
+	// printf("resor: %i\n", resor);
+char *str = ft_itobase(LLONG_MIN, get_const("decimal"));
+printf("%s\n", str);
+free(str);
+printf("%lu", LLONG_MIN);
+
+	// resft = ft_printf("int %p ", 18);
+	// printf("resft: %i\n", resft);
+	// resor = printf("int %p ", 18);
+	// printf("resor: %i\n", resor);
 
 	return 0;
 }
