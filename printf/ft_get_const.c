@@ -14,15 +14,15 @@
 
 const char *get_const(char *set)
 {
-	if (!ft_strncmp(set, "flags", ft_strlen(set)))
+	if (!ft_strncmp(set, "flags", 5))
 		return ("-0. #+");
-	if (!ft_strncmp(set, "con_id", ft_strlen(set)))
+	if (!ft_strncmp(set, "con_id", 6))
 		return ("cspdiuxX");
-	if (!ft_strncmp(set, "hex_up", ft_strlen(set)))
+	if (!ft_strncmp(set, "hex_up", 6))
 		return ("0123456789ABCDEF");
-	if (!ft_strncmp(set, "hex_low", ft_strlen(set)))
+	if (!ft_strncmp(set, "hex_low", 7))
 		return ("0123456789abcdef");
-	if (!ft_strncmp(set, "decimal", ft_strlen(set)))
+	if (!ft_strncmp(set, "decimal", 7))
 		return ("0123456789");
 	return ("");
 }

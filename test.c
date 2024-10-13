@@ -5,14 +5,21 @@ int main(void)
 {
 	int	resft;
 	int	resor;
-	unsigned long ul = 165498755;
 	// char	*string = "char pointer";
-	// resft = ft_printf("some text and a char: %c\n", 67);
-	// printf("restft: %i\n", resft);
+
+	resft = ft_printf("some text and %c a char: %c ", 67, 68);
+	printf(" | restft: %i\n", resft);
+	resor = printf("some text and %c a char: %c ", 67, 68);
+	printf(" | restft: %i\n", resor);
+
 	// resft = ft_printf("some text and a number: %d\n", -6732424);
 	// printf("restft: %i\n", resft);
-	// resft = ft_printf("some text and a string: %s\n", "text as a parameter");
-	// printf("restft: %i\n", resft);
+
+	resft = ft_printf("some text and a string: %s", "text as a parameter");
+	printf(" | restft: %i\n", resft);
+	resor = printf("some text and a string: %s", "text as a parameter");
+	printf(" | restft: %i\n", resor);
+
 	// resft = ft_printf("some text and a poirter as long: %p\n", "text as a parameter");
 	// printf("restft: %i\n", resft);
 	// resft = ft_printf("some text and a nothing: %a\n", string);
@@ -37,6 +44,26 @@ int main(void)
 	// printf(" | resft: %i\n", resft);
 	// resor = printf("unsigned int %u", -10000);
 	// printf(" | resor: %i\n", resor);
+
+	resft = ft_printf("int %d", 10000);
+	printf(" | resft: %i\n", resft);
+	resor = printf("int %d", 10000);
+	printf(" | resor: %i\n", resor);
+
+	resft = ft_printf("int %d", -10000);
+	printf(" | resft: %i\n", resft);
+	resor = printf("int %d", -10000);
+	printf(" | resor: %i\n", resor);
+
+	resft = ft_printf("int %d", INT_MAX);
+	printf(" | resft: %i\n", resft);
+	resor = printf("int %d", INT_MAX);
+	printf(" | resor: %i\n", resor);
+
+	resft = ft_printf("int %d", INT_MIN);
+	printf(" | resft: %i\n", resft);
+	resor = printf("int %d", INT_MIN);
+	printf(" | resor: %i\n", resor);
 
 	// resft = ft_printf("pointer identifier %x", ul);
 	// printf(" | resft: %i\n", resft);
@@ -102,7 +129,7 @@ int main(void)
 	printf("resft: %i\n", resft);
 	resor = printf("int %x ", LONG_MAX * 2L +1L);
 	printf("resor: %i\n", resor);
-	
+
 // char *str = ft_itobase(LLONG_MIN, get_const("decimal"));
 // printf("%s\n", str);
 // free(str);
