@@ -6,7 +6,7 @@
 /*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 13:56:21 by husrevakbas       #+#    #+#             */
-/*   Updated: 2024/10/13 14:02:36 by husrevakbas      ###   ########.fr       */
+/*   Updated: 2024/10/13 21:42:27 by husrevakbas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_handle_char(char *flags, va_list args, int *res)
 {
 	char	char_and_0[2];
-	
+
 	(void) flags;
 	char_and_0[0] = va_arg(args, int);
 	if (char_and_0[0] == 0)

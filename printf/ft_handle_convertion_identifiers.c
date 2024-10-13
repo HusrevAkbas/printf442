@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_handle_convertion_identifiers.c                 :+:      :+:    :+:   */
+/*   ft_handle_convertion.c                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void	ft_handle_convertion_identifiers(char *flags, va_list args, int *res)
+void	ft_handle_convertion(char *flags, va_list args, int *res)
 {
 	//char	*str_to_print;
 	//char	handle_char[2];

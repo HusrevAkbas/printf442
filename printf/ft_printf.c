@@ -6,7 +6,7 @@
 /*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:25:49 by huakbas           #+#    #+#             */
-/*   Updated: 2024/10/13 20:52:37 by husrevakbas      ###   ########.fr       */
+/*   Updated: 2024/10/13 22:13:35 by husrevakbas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ char	*set_flags(char **checkpoint)
 
 	flags = ft_calloc(50, 1);
 	i = 0;
+	*checkpoint += 1;
 	if ( **checkpoint && ft_strchr(get_const("con_id"), **checkpoint))
 	{
 		flags[i] = **checkpoint;
@@ -37,16 +38,6 @@ char	*set_flags(char **checkpoint)
 		*checkpoint += 1;
 	}
 	return flags;
-}
-
-void	print_some(const char *format, char *checkpoint, int *res)
-{
-	char *sub;
-
-	sub = ft_substr(format, 0, checkpoint - format);
-	ft_putstr_fd(sub, 1);
-	*res += ft_strlen(sub);
-	free(sub);
 }
 
 int	check_str_has_char(char *flags, const char *con_spec)
@@ -63,13 +54,21 @@ int	check_str_has_char(char *flags, const char *con_spec)
 	return (0);
 }
 
+void	print_substr(char *format, char *checkpoint, int *res)
+{
+	char	*str;
+
+	str = ft_substr(format, 0, checkpoint - format);
+	*res += ft_print_count(str);
+	free(str);
+}
+
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		res;
 	char	*flags;
 	char	*checkpoint;
-	char	*substr;
 
 	if (!format)
 		return (-1);
@@ -79,36 +78,24 @@ int	ft_printf(const char *format, ...)
 	{
 		checkpoint = ft_strchr(format, '%');
 		if (!checkpoint)
+			return (res += ft_print_count((char *) format));
+		print_substr((char *) format, checkpoint, &res);
+		format = checkpoint + 1;
+		if (checkpoint[1] == '%')
 		{
-			ft_putstr_fd((char *) format, 1);
-			return res + ft_strlen(format);
-		}
-		substr = ft_substr(format, 0, checkpoint - format);
-		ft_putstr_fd(substr, 1);
-		res += ft_strlen(substr);
-		free(substr);
-		checkpoint++;
-		if (*checkpoint == '%')
-		{
-			ft_putstr_fd("%", 1);
-			res++;
-			checkpoint++;
-			format = checkpoint;
+			res += ft_print_count("%");
+			format++;
 		}
 		else
 		{
-			format = checkpoint;
 			flags = set_flags(&checkpoint);
 			if (check_str_has_char(flags, get_const("con_id")))
 			{
-				ft_handle_convertion_identifiers(flags, args, &res);
+				ft_handle_convertion(flags, args, &res);
 				format = checkpoint;
 			}
 			else
-			{
-				ft_putstr_fd("%", 1);
-				res++;
-			}
+				res += ft_print_count("%");
 			free(flags);
 		}
 	}

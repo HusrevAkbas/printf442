@@ -6,7 +6,7 @@
 #    By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/05 17:57:44 by huakbas           #+#    #+#              #
-#    Updated: 2024/10/13 20:16:08 by husrevakbas      ###   ########.fr        #
+#    Updated: 2024/10/13 21:09:39 by husrevakbas      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CFLAGS := -Wall -Wextra -Werror
 
 SRCFILES := ft_printf.c ft_handle_convertion_identifiers.c ft_itobase.c \
 ft_get_const.c ft_itobase_ul.c ft_handle_char.c ft_handle_int.c ft_handle_string.c \
-ft_handle_ulong.c ft_handle_uint.c
+ft_handle_ulong.c ft_handle_uint.c ft_print_count.c
 
 #BONUSFILES := 
 
