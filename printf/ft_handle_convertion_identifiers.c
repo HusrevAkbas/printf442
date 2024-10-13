@@ -11,12 +11,8 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-void	ft_handle_convertion(char *flags, va_list args, int *res)
-{
 	//char	*str_to_print;
 	//char	handle_char[2];
-
 	// WILL BE ADDED IN CONVERTION HANDLERS
 	// check min field
 	// check precision
@@ -25,9 +21,9 @@ void	ft_handle_convertion(char *flags, va_list args, int *res)
 	// convert
 	// write
 	// DONT FORGET TO COUNT PRINTED CHARS
-
-	
 	// apply flags and print cspdiuxX%
+void	ft_handle_convertion(char *flags, va_list args, int *res)
+{
 	if (ft_strchr(flags, 'c'))
 		ft_handle_char(flags, args, res);
 	if (ft_strchr(flags, 'd') || ft_strchr(flags, 'i'))

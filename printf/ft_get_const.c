@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_const.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: huakbas <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 15:23:12 by huakbas           #+#    #+#             */
-/*   Updated: 2024/10/12 15:23:14 by huakbas          ###   ########.fr       */
+/*   Updated: 2024/10/13 23:08:25 by husrevakbas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-const char *get_const(char *set)
+const char	*get_const(char *set)
 {
 	if (!ft_strncmp(set, "flags", 5))
 		return ("-0. #+");

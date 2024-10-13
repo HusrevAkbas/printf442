@@ -6,7 +6,7 @@
 /*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 20:06:34 by husrevakbas       #+#    #+#             */
-/*   Updated: 2024/10/13 20:09:13 by husrevakbas      ###   ########.fr       */
+/*   Updated: 2024/10/13 23:09:16 by husrevakbas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 void	ft_handle_ulong(char *flags, va_list args, int *res)
 {
-	char	*str_to_print;
+	char			*str_to_print;
+	unsigned long	i;
 
 	(void) flags;
-	unsigned long i = (unsigned long) va_arg(args, void *);
+	i = (unsigned long) va_arg(args, void *);
 	if (i == 0)
 	{
 		ft_putstr_fd("(nil)", 1);
@@ -31,5 +32,4 @@ void	ft_handle_ulong(char *flags, va_list args, int *res)
 		*res += ft_strlen(str_to_print) + 2;
 		free(str_to_print);
 	}
-	
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itohex.c                                        :+:      :+:    :+:   */
+/*   ft_itobase_ul.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: huakbas <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 14:58:45 by huakbas           #+#    #+#             */
-/*   Updated: 2024/10/11 14:58:47 by huakbas          ###   ########.fr       */
+/*   Updated: 2024/10/13 23:11:30 by husrevakbas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	is_base_valid(const char *base)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (base[i])
@@ -38,8 +38,8 @@ static int	is_base_valid(const char *base)
 
 static int	count_chars(unsigned long num, const char *base)
 {
-	int count;
-	unsigned long base_length;
+	int				count;
+	unsigned long	base_length;
 
 	count = 1;
 	base_length = (unsigned long) ft_strlen(base);
@@ -48,13 +48,13 @@ static int	count_chars(unsigned long num, const char *base)
 		count++;
 		num = num / base_length;
 	}
-	return count;
+	return (count);
 }
 
-static void	ft_put(char *str,unsigned long nbr, const char *base, int i)
+static void	ft_put(char *str, unsigned long nbr, const char *base, int i)
 {
-	int remainder;
-	unsigned long base_length;
+	int				remainder;
+	unsigned long	base_length;
 
 	base_length = (unsigned long) ft_strlen(base);
 	if (nbr >= (unsigned long) ft_strlen(base))
@@ -81,6 +81,6 @@ char	*ft_itobase_ul(unsigned long nbr, const char *base)
 		return (NULL);
 	if (char_count > 1)
 		ft_put(str, nbr, base, char_count - 2);
-	str[char_count-1] = base[last_d];
+	str[char_count - 1] = base[last_d];
 	return (str);
 }
