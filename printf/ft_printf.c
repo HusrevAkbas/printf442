@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.c                                           :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: huakbas <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:25:49 by huakbas           #+#    #+#             */
-/*   Updated: 2024/10/05 18:25:51 by huakbas          ###   ########.fr       */
+/*   Updated: 2024/10/13 20:52:37 by husrevakbas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,23 +77,17 @@ int	ft_printf(const char *format, ...)
 	va_start(args, format);
 	while (*format)
 	{
-		//check %
 		checkpoint = ft_strchr(format, '%');
-
 		if (!checkpoint)
 		{
 			ft_putstr_fd((char *) format, 1);
 			return res + ft_strlen(format);
 		}
-		else 
-		{
-		//print until next %
-			substr = ft_substr(format, 0, checkpoint - format);
-			ft_putstr_fd(substr, 1);
-			res += ft_strlen(substr);
-			free(substr);
-			checkpoint++;
-		}
+		substr = ft_substr(format, 0, checkpoint - format);
+		ft_putstr_fd(substr, 1);
+		res += ft_strlen(substr);
+		free(substr);
+		checkpoint++;
 		if (*checkpoint == '%')
 		{
 			ft_putstr_fd("%", 1);
@@ -104,9 +98,7 @@ int	ft_printf(const char *format, ...)
 		else
 		{
 			format = checkpoint;
-			// check flags
 			flags = set_flags(&checkpoint);
-//printf("const: %s\n", flags);
 			if (check_str_has_char(flags, get_const("con_id")))
 			{
 				ft_handle_convertion_identifiers(flags, args, &res);
@@ -119,8 +111,6 @@ int	ft_printf(const char *format, ...)
 			}
 			free(flags);
 		}
-		// printf("char at checkpoint: %c\n", checkpoint != NULL ? *checkpoint : 'N');
-		// printf("checkpoint - format: %ld\n", checkpoint - format);
 	}
 	va_end(args);
 	return (res);
