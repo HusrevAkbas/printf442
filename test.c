@@ -33,10 +33,10 @@ int main(void)
 	// resor = printf("unsigned int %u", ul);
 	// printf(" | resor: %i\n", resor);
 
-	resft = ft_printf("unsigned int %u", -10000);
-	printf(" | resft: %i\n", resft);
-	resor = printf("unsigned int %u", -10000);
-	printf(" | resor: %i\n", resor);
+	// resft = ft_printf("unsigned int %u", -10000);
+	// printf(" | resft: %i\n", resft);
+	// resor = printf("unsigned int %u", -10000);
+	// printf(" | resor: %i\n", resor);
 
 	// resft = ft_printf("pointer identifier %x", ul);
 	// printf(" | resft: %i\n", resft);
@@ -88,24 +88,25 @@ int main(void)
 	// resor = printf("int %p ", 0);
 	// printf("resor: %i\n", resor);
 
-	// resft = ft_printf("int %p ", LONG_MAX);
-	// printf("resft: %i\n", resft);
-	// resor = printf("int %p ", LONG_MAX);
-	// printf("resor: %i\n", resor);
+	resft = ft_printf("int %x ", LONG_MAX);
+	printf("resft: %i\n", resft);
+	resor = printf("int %x ", LONG_MAX);
+	printf("resor: %i\n", resor);
 
-	// resft = ft_printf("int %p ", LONG_MIN);
-	// printf("resft: %i\n", resft);
-	// resor = printf("int %p ", LONG_MIN);
-	// printf("resor: %i\n", resor);
+	resft = ft_printf("int %x ", LONG_MIN);
+	printf("resft: %i\n", resft);
+	resor = printf("int %x ", LONG_MIN);
+	printf("resor: %i\n", resor);
 
-	// resft = ft_printf("int %p ", LONG_MAX * 2L +1L);
-	// printf("resft: %i\n", resft);
-	// resor = printf("int %p ", LONG_MAX * 2L +1L);
-	// printf("resor: %i\n", resor);
-char *str = ft_itobase(LLONG_MIN, get_const("decimal"));
-printf("%s\n", str);
-free(str);
-printf("%lu", LLONG_MIN);
+	resft = ft_printf("int %x ", LONG_MAX * 2L +1L);
+	printf("resft: %i\n", resft);
+	resor = printf("int %x ", LONG_MAX * 2L +1L);
+	printf("resor: %i\n", resor);
+	
+// char *str = ft_itobase(LLONG_MIN, get_const("decimal"));
+// printf("%s\n", str);
+// free(str);
+// printf("%lu", LLONG_MIN);
 
 	// resft = ft_printf("int %p ", 18);
 	// printf("resft: %i\n", resft);

@@ -36,13 +36,13 @@ static int	is_base_valid(const char *base)
 	return (i);
 }
 
-static int	count_chars(unsigned int num, const char *base)
+static int	count_chars(unsigned long num, const char *base)
 {
 	int count;
-	unsigned int base_length;
+	unsigned long base_length;
 
 	count = 1;
-	base_length = (unsigned int) ft_strlen(base);
+	base_length = (unsigned long) ft_strlen(base);
 	while (num >= base_length)
 	{
 		count++;
@@ -51,22 +51,22 @@ static int	count_chars(unsigned int num, const char *base)
 	return count;
 }
 
-static void	ft_put(char *str,unsigned int nbr, const char *base, int i)
+static void	ft_put(char *str,unsigned long nbr, const char *base, int i)
 {
 	int remainder;
-	unsigned int base_length;
+	unsigned long base_length;
 
-	base_length = (unsigned int) ft_strlen(base);
-	if (nbr >= (unsigned int) ft_strlen(base))
+	base_length = (unsigned long) ft_strlen(base);
+	if (nbr >= (unsigned long) ft_strlen(base))
 		ft_put(str, nbr / base_length, base, i - 1);
 	remainder = nbr % base_length;
 	str[i] = base[remainder];
 }
 
-char	*ft_itobase(unsigned int nbr, const char *base)
+char	*ft_itobase_ul(unsigned long nbr, const char *base)
 {
 	char			*str;
-	unsigned int	base_length;
+	unsigned long	base_length;
 	int				last_d;
 	int				char_count;
 
