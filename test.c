@@ -1,85 +1,45 @@
 #include "printf/ft_printf.h"
 #include "limits.h"
 
-int main(void)
+void	test_main()
 {
 	int	resft;
 	int	resor;
 	char	*string = "char pointer";
 
-	resft = ft_printf("some text and %c a char: %c ", 67, 68);
+	resft = ft_printf("CHAR %c a char: %c ", 67, 68);
 	printf(" | restft: %i\n", resft);
-	resor = printf("some text and %c a char: %c ", 67, 68);
+	resor = printf("CHAR %c a char: %c ", 67, 68);
 	printf(" | restor: %i\n", resor);
 
-	resft = ft_printf("some text and a number: %d", -6732424);
-	printf(" | resft: %i\n", resft);
-	resor = printf("some text and a number: %d", -6732424);
-	printf(" | resor: %i\n", resor);
-
-	resft = ft_printf("%d number at beginning", -6732424);
-	printf(" | resft: %i\n", resft);
-	resor = printf("%d number at beginning", -6732424);
-	printf(" | resor: %i\n", resor);
-
-	resft = ft_printf("some text and a string: %s", "text as a parameter");
+	resft = ft_printf("CHAR null %c a char: %c ", 0, NULL);
 	printf(" | restft: %i\n", resft);
-	resor = printf("some text and a string: %s", "text as a parameter");
+	resor = printf("CHAR null %c a char: %c ", 0, NULL);
 	printf(" | restor: %i\n", resor);
 
-	resft = ft_printf("some text and a nothing: %k%k");
+	resft = ft_printf("INT NULL : %d", NULL);
 	printf(" | resft: %i\n", resft);
-	resor = printf("some text and a nothing: %k%k");
+	resor = printf("INT NULL : %d", NULL);
 	printf(" | resor: %i\n", resor);
 
-	resft = ft_printf("NOT identifiers format 0 %m 34%k78%%");
-	printf(" | restft: %i\n", resft);
-	resor = printf("NOT identifiers format 0 %m 34%k78%%");
+	resft = ft_printf("INT ZERO int : %d", 0);
+	printf(" | resft: %i\n", resft);
+	resor = printf("INT ZERO int : %d", 0);
 	printf(" | resor: %i\n", resor);
 
-	resft = ft_printf("one identifier between not identifiers %k 034 %s H78%%", "0000");
+	resft = ft_printf("INT int : %i", -6732424);
 	printf(" | resft: %i\n", resft);
-	resor = printf("one identifier between not identifiers %k 034 %s H78%%", "0000");
+	resor = printf("INT int : %i", -6732424);
 	printf(" | resor: %i\n", resor);
 
-	resft = ft_printf("pointer identifier %p", string);
+	resft = ft_printf("%d INT at beginning", -6732424);
 	printf(" | resft: %i\n", resft);
-	resor = printf("pointer identifier %p", string);
+	resor = printf("%d INT at beginning", -6732424);
 	printf(" | resor: %i\n", resor);
 
-	resft = ft_printf("unsigned int %u", 1234567988);
+	resft = ft_printf("%i INT at beginning with zeros", 900000);
 	printf(" | resft: %i\n", resft);
-	resor = printf("unsigned int %u", 1234567988);
-	printf(" | resor: %i\n", resor);
-
-	resft = ft_printf("unsigned int max %u", ULONG_MAX);
-	printf(" | resft: %i\n", resft);
-	resor = printf("unsigned int max %u", ULONG_MAX);
-	printf(" | resor: %i\n", resor);
-
-	resft = ft_printf("unsigned int %u", 0);
-	printf(" | resft: %i\n", resft);
-	resor = printf("unsigned int %u", 0);
-	printf(" | resor: %i\n", resor);
-
-	resft = ft_printf("unsigned int %u", 1000000);
-	printf(" | resft: %i\n", resft);
-	resor = printf("unsigned int %u", 1000000);
-	printf(" | resor: %i\n", resor);
-
-	resft = ft_printf("int %d", 0);
-	printf(" | resft: %i\n", resft);
-	resor = printf("int %d", 0);
-	printf(" | resor: %i\n", resor);
-
-	resft = ft_printf("int %d", 10000);
-	printf(" | resft: %i\n", resft);
-	resor = printf("int %d", 10000);
-	printf(" | resor: %i\n", resor);
-
-	resft = ft_printf("int %d", -10000);
-	printf(" | resft: %i\n", resft);
-	resor = printf("int %d", -10000);
+	resor = printf("%i INT at beginning with zeros", 900000);
 	printf(" | resor: %i\n", resor);
 
 	resft = ft_printf("int %d", INT_MAX);
@@ -92,80 +52,115 @@ int main(void)
 	resor = printf("int %d", INT_MIN);
 	printf(" | resor: %i\n", resor);
 
-	resft = ft_printf("pointer identifier %x", -1569);
+	resft = ft_printf("STRING: %s", "text as a parameter");
+	printf(" | restft: %i\n", resft);
+	resor = printf("STRING: %s", "text as a parameter");
+	printf(" | restor: %i\n", resor);
+
+	resft = ft_printf("STRING Null %s Null ", NULL);
 	printf(" | resft: %i\n", resft);
-	resor = printf("pointer identifier %x", -1569);
+	resor = printf("STRING Null %s Null ", NULL);
 	printf(" | resor: %i\n", resor);
 
-	resft = ft_printf("%c %c %c ", '0', 0, '1');
+	resft = ft_printf("NOT: %k%k%k%k");
 	printf(" | resft: %i\n", resft);
-	resor = printf("%c %c %c ", '0', 0, '1');
+	resor = printf("NOT: %k%k%k%k");
 	printf(" | resor: %i\n", resor);
 
-	resft = ft_printf("Null %s Null ", NULL);
-	printf(" | resft: %i\n", resft);
-	resor = printf("Null %s Null ", NULL);
-	printf(" | resor: %i\n", resor);
-	
-	resft = ft_printf("Null %p Null ", NULL);
-	printf(" | resft: %i\n", resft);
-	resor = printf("Null %p Null ", NULL);
-	printf(" | resor: %i\n", resor);
-	
-	resft = ft_printf("Null %c Null ", 0);
-	printf(" | resft: %i\n", resft);
-	resor = printf("Null %c Null ", 0);
-	printf(" | resor: %i\n", resor);
-	
-	resft = ft_printf("Null %cccc Null ", 77);
-	printf(" | resft: %i\n", resft);
-	resor = printf("Null %cccc Null ", 77);
+	resft = ft_printf("NOT identifiers 0 %m 34%k78%%");
+	printf(" | restft: %i\n", resft);
+	resor = printf("NOT identifiers 0 %m 34%k78%%");
 	printf(" | resor: %i\n", resor);
 
-	resft = ft_printf("zero %ddd zero ", 0);
+	resft = ft_printf("one identifier between not identifiers %k 034 %s H78%%", "0000");
 	printf(" | resft: %i\n", resft);
-	resor = printf("zero %ddd zero ", 0);
-	printf(" | resor: %i\n", resor);
-	
-	resft = ft_printf("int %p ", 0);
-	printf(" | resft: %i\n", resft);
-	resor = printf("int %p ", 0);
+	resor = printf("one identifier between not identifiers %k 034 %s H78%%", "0000");
 	printf(" | resor: %i\n", resor);
 
-	resft = ft_printf("int %x ", LONG_MAX);
+	resft = ft_printf("POINTER identifier %p", string);
 	printf(" | resft: %i\n", resft);
-	resor = printf("int %x ", LONG_MAX);
+	resor = printf("POINTER identifier %p", string);
 	printf(" | resor: %i\n", resor);
 
-	resft = ft_printf("int %x ", LONG_MIN);
+	resft = ft_printf("POINTER NULL identifier %p", NULL);
 	printf(" | resft: %i\n", resft);
-	resor = printf("int %x ", LONG_MIN);
+	resor = printf("POINTER NULL identifier %p", NULL);
 	printf(" | resor: %i\n", resor);
 
-	resft = ft_printf("int %x ", LONG_MAX * 2L +1L);
+	resft = ft_printf("POINTER int parameter %x", -1569);
 	printf(" | resft: %i\n", resft);
-	resor = printf("int %x ", LONG_MAX * 2L +1L);
+	resor = printf("POINTER int parameter %x", -1569);
 	printf(" | resor: %i\n", resor);
 
-	resft = ft_printf("int %X ", LONG_MAX);
+	resft = ft_printf("POINTER int %p ", 100);
 	printf(" | resft: %i\n", resft);
-	resor = printf("int %X ", LONG_MAX);
+	resor = printf("POINTER int %p ", 100);
 	printf(" | resor: %i\n", resor);
 
-	resft = ft_printf("int %X ", LONG_MIN);
+	resft = ft_printf("UNSIGNED int %u", 1234567988);
 	printf(" | resft: %i\n", resft);
-	resor = printf("int %X ", LONG_MIN);
+	resor = printf("UNSIGNED int %u", 1234567988);
 	printf(" | resor: %i\n", resor);
 
-	resft = ft_printf("int %X ", 123456789);
+	resft = ft_printf("UNSIGNED int max %u", ULONG_MAX);
 	printf(" | resft: %i\n", resft);
-	resor = printf("int %X ", 123456789);
+	resor = printf("UNSIGNED int max %u", ULONG_MAX);
 	printf(" | resor: %i\n", resor);
 
-	resft = ft_printf("int %p ", 18);
+	resft = ft_printf("UNSIGNED int %u", 0);
 	printf(" | resft: %i\n", resft);
-	resor = printf("int %p ", 18);
+	resor = printf("UNSIGNED int %u", 0);
 	printf(" | resor: %i\n", resor);
 
+	resft = ft_printf("UNSIGNED int %u", 1000000);
+	printf(" | resft: %i\n", resft);
+	resor = printf("UNSIGNED int %u", 1000000);
+	printf(" | resor: %i\n", resor);
+
+	resft = ft_printf("he x long max %x ", LONG_MAX);
+	printf(" | resft: %i\n", resft);
+	resor = printf("he x long max %x ", LONG_MAX);
+	printf(" | resor: %i\n", resor);
+
+	resft = ft_printf("he x long min %x ", LONG_MIN);
+	printf(" | resft: %i\n", resft);
+	resor = printf("he x long min %x ", LONG_MIN);
+	printf(" | resor: %i\n", resor);
+
+	resft = ft_printf("he x ulong max %x ", ULONG_MAX);
+	printf(" | resft: %i\n", resft);
+	resor = printf("he x ulong max %x ", ULONG_MAX);
+	printf(" | resor: %i\n", resor);
+
+	resft = ft_printf("HE X long max %X ", LONG_MAX);
+	printf(" | resft: %i\n", resft);
+	resor = printf("HE X long max %X ", LONG_MAX);
+	printf(" | resor: %i\n", resor);
+
+	resft = ft_printf("HE X long min %X ", LONG_MIN);
+	printf(" | resft: %i\n", resft);
+	resor = printf("HE X long min %X ", LONG_MIN);
+	printf(" | resor: %i\n", resor);
+
+	resft = ft_printf("HE X int %X ", 123456789);
+	printf(" | resft: %i\n", resft);
+	resor = printf("HE X int %X ", 123456789);
+	printf(" | resor: %i\n", resor);
+}
+void	test_bonus()
+{
+	int resft;
+	int resor;
+	// char *string = "char pointer";
+
+	resft = ft_printf("CHAR %c a char: %c ", 67, 68);
+	printf(" | restft: %i\n", resft);
+	resor = printf("CHAR %c a char: %c ", 67, 68);
+	printf(" | restor: %i\n", resor);
+}
+int main(void)
+{
+	//test_main();
+	test_bonus();
 	return 0;
 }

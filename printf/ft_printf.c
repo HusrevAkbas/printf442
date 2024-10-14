@@ -71,7 +71,7 @@ void	check_flags_handle(char **checkpoint, va_list args, int *res)
 	if (check_str_has_char(flags, get_const("con_id")))
 		ft_handle_convertion(flags, args, res);
 	else
-		res += ft_print_count("%");
+		*res += ft_print_count("%");
 	free(flags);
 }
 
