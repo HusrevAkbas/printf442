@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_int.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
+/*   By: huakbas <huakbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 14:05:12 by husrevakbas       #+#    #+#             */
-/*   Updated: 2024/10/13 23:05:37 by husrevakbas      ###   ########.fr       */
+/*   Updated: 2024/10/14 19:02:25 by huakbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 void	ft_handle_int(char *flags, va_list args, int *res)
 {
 	char	*str_to_print;
+	char	*num_str;
 
-	(void) flags;
-	str_to_print = ft_itoa(va_arg(args, int));
+	num_str = ft_itoa(va_arg(args, int));
+	str_to_print = ft_set_flagged_str(flags, num_str);
 	if (str_to_print)
 	{
 		ft_putstr_fd(str_to_print, 1);

@@ -173,14 +173,24 @@ void	test_bonus()
 	resor = printf("CHAR %-10p a char: %-10p", string, 0);
 	printf(" | restor: %i\n", resor);
 
-	resft = ft_printf("CHAR %10u a char: %10u", 123456, 0);
+	resft = ft_printf("CHAR %10u a char: %10u", INT_MAX, 0);
 	printf(" | restft: %i\n", resft);
-	resor = printf("CHAR %10u a char: %10u", 123456, 0);
+	resor = printf("CHAR %10u a char: %10u", INT_MAX, 0);
 	printf(" | restor: %i\n", resor);
 
-	resft = ft_printf("CHAR %-10u a char: %-10u", 123456, 0);
+	resft = ft_printf("CHAR %-10u a char: %-10u", INT_MIN, 0);
 	printf(" | restft: %i\n", resft);
-	resor = printf("CHAR %-10u a char: %-10u", 123456, 0);
+	resor = printf("CHAR %-10u a char: %-10u", INT_MIN, 0);
+	printf(" | restor: %i\n", resor);
+
+	resft = ft_printf("CHAR %15d a char: %15d", INT_MAX, 0);
+	printf(" | restft: %i\n", resft);
+	resor = printf("CHAR %15d a char: %15d", INT_MAX, 0);
+	printf(" | restor: %i\n", resor);
+
+	resft = ft_printf("CHAR %-15d a char: %-15d", INT_MIN, 0);
+	printf(" | restft: %i\n", resft);
+	resor = printf("CHAR %-15d a char: %-15d", INT_MIN, 0);
 	printf(" | restor: %i\n", resor);
 
 	// !!!!!!!!!!!!!!!!!!! INVALID FLAGS IGNORED !!!!!!!!!!!!!!!
