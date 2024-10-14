@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
+/*   By: huakbas <huakbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:25:55 by huakbas           #+#    #+#             */
-/*   Updated: 2024/10/13 21:50:59 by husrevakbas      ###   ########.fr       */
+/*   Updated: 2024/10/14 16:56:13 by huakbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,3 +26,4 @@ void		ft_handle_string(char *flags, va_list args, int *res);
 void		ft_handle_ulong(char *flags, va_list args, int *res);
 void		ft_handle_uint(char *f, va_list a, int *r, const char *b);
 int			ft_print_count(char *str);
+char		*ft_set_flagged_str(char *flags, char *converted_str);

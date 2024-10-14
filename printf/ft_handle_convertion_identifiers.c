@@ -22,8 +22,11 @@
 	// write
 	// DONT FORGET TO COUNT PRINTED CHARS
 	// apply flags and print cspdiuxX%
+
 void	ft_handle_convertion(char *flags, va_list args, int *res)
 {
+	if (ft_strchr(flags, '%'))
+		*res += ft_print_count("%");
 	if (ft_strchr(flags, 'c'))
 		ft_handle_char(flags, args, res);
 	if (ft_strchr(flags, 'd') || ft_strchr(flags, 'i'))

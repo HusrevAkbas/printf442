@@ -27,10 +27,41 @@ char	*set_flags(char **checkpoint)
 {
 	char	*flags;
 	int		i;
+	char	*set_back_checkpoint;
 
+	set_back_checkpoint = *checkpoint;
 	flags = ft_calloc(50, 1);
+	if (flags == NULL)
+		return (NULL);
 	i = 0;
-	if (**checkpoint && ft_strchr(get_const("con_id"), **checkpoint))
+	while (ft_strchr(get_const("flags"), **checkpoint))
+	{
+		if (!ft_strchr(flags, **checkpoint))
+		{
+			flags[i] = **checkpoint;
+			i++;
+		}
+		*checkpoint += 1;
+	}
+	while (ft_isdigit(**checkpoint))
+	{
+		flags[i] = **checkpoint;
+		i++;
+		*checkpoint += 1;
+	}
+	while (**checkpoint == '.')
+	{
+		flags[i] = '.';
+		i++;
+		*checkpoint += 1;
+	}
+	while (ft_isdigit(**checkpoint))
+	{
+		flags[i] = **checkpoint;
+		i++;
+		*checkpoint += 1;
+	}
+	if (ft_strchr(get_const("con_id"), **checkpoint))
 	{
 		flags[i] = **checkpoint;
 		i++;
@@ -67,7 +98,9 @@ void	check_flags_handle(char **checkpoint, va_list args, int *res)
 {
 	char	*flags;
 
-	flags = set_flags(checkpoint);
+	flags = (char *) set_flags(checkpoint);
+	if (flags == NULL)
+		return ;
 	if (check_str_has_char(flags, get_const("con_id")))
 		ft_handle_convertion(flags, args, res);
 	else
@@ -91,13 +124,7 @@ int	ft_printf(const char *format, ...)
 		if (!checkpoint)
 			return (res += ft_print_count((char *) format));
 		print_substr((char *) format, &checkpoint, &res);
-		if (checkpoint[0] == '%')
-		{
-			res += ft_print_count("%");
-			checkpoint += 1;
-		}
-		else
-			check_flags_handle(&checkpoint, args, &res);
+		check_flags_handle(&checkpoint, args, &res);
 		format = checkpoint;
 	}
 	va_end(args);

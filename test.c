@@ -153,10 +153,37 @@ void	test_bonus()
 	int resor;
 	// char *string = "char pointer";
 
-	resft = ft_printf("CHAR %c a char: %c ", 67, 68);
+	resft = ft_printf("CHAR%2ca char: %5c", 0, 68);
 	printf(" | restft: %i\n", resft);
-	resor = printf("CHAR %c a char: %c ", 67, 68);
+	resor = printf("CHAR%2ca char: %5c", 0, 68);
 	printf(" | restor: %i\n", resor);
+
+	resft = ft_printf("CHAR %c a char: %c", 66, 68);
+	printf(" | restft: %i\n", resft);
+	resor = printf("CHAR %c a char: %c", 66, 68);
+	printf(" | restor: %i\n", resor);
+
+	// !!!!!!!!!!!!!!!!!!! INVALID FLAGS IGNORED !!!!!!!!!!!!!!!
+
+	// resft = ft_printf("CHAR TWO DOTS CONSECUTIVELY %..c a char: %c", 67, 68);
+	// printf(" | restft: %i\n", resft);
+	// resor = printf("CHAR TWO DOTS CONSECUTIVELY %..c a char: %c", 67, 68);
+	// printf(" | restor: %i\n", resor);
+
+	// resft = ft_printf("CHAR THREE DOTS CONSECUTIVELY %...c a char: %c", 67, 68);
+	// printf(" | restft: %i\n", resft);
+	// resor = printf("CHAR THREE DOTS CONSECUTIVELY %...c a char: %c", 67, 68);
+	// printf(" | restor: %i\n", resor);
+
+	// resft = ft_printf("CHAR THREE DOTS CONSECUTIVELY %..5. a char: %c", 67, 68);
+	// printf(" | restft: %i\n", resft);
+	// resor = printf("CHAR THREE DOTS CONSECUTIVELY %..5. a char: %c", 67, 68);
+	// printf(" | restor: %i\n", resor);
+
+	// resft = ft_printf("CHAR TWO DOTS NUMBER BETWEEN DOTS %.1.c a char: %c ", 67, 68);
+	// printf(" | restft: %i\n", resft);
+	// resor = printf("CHAR TWO DOTS NUMBER BETWEEN DOTS %.1.c a char: %c ", 67, 68);
+	// printf(" | restor: %i\n", resor);
 }
 int main(void)
 {
