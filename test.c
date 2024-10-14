@@ -151,16 +151,36 @@ void	test_bonus()
 {
 	int resft;
 	int resor;
-	// char *string = "char pointer";
+	char *string = "char pointer";
 
-	resft = ft_printf("CHAR%2ca char: %5c", 0, 68);
+	resft = ft_printf("CHAR%-2ca char: %-5c", 0, 68);
 	printf(" | restft: %i\n", resft);
-	resor = printf("CHAR%2ca char: %5c", 0, 68);
+	resor = printf("CHAR%-2ca char: %-5c", 0, 68);
 	printf(" | restor: %i\n", resor);
 
 	resft = ft_printf("CHAR %c a char: %c", 66, 68);
 	printf(" | restft: %i\n", resft);
 	resor = printf("CHAR %c a char: %c", 66, 68);
+	printf(" | restor: %i\n", resor);
+
+	resft = ft_printf("CHAR %10p a char: %10p", string, 0);
+	printf(" | restft: %i\n", resft);
+	resor = printf("CHAR %10p a char: %10p", string, 0);
+	printf(" | restor: %i\n", resor);
+
+	resft = ft_printf("CHAR %-10p a char: %-10p", string, 0);
+	printf(" | restft: %i\n", resft);
+	resor = printf("CHAR %-10p a char: %-10p", string, 0);
+	printf(" | restor: %i\n", resor);
+
+	resft = ft_printf("CHAR %10u a char: %10u", 123456, 0);
+	printf(" | restft: %i\n", resft);
+	resor = printf("CHAR %10u a char: %10u", 123456, 0);
+	printf(" | restor: %i\n", resor);
+
+	resft = ft_printf("CHAR %-10u a char: %-10u", 123456, 0);
+	printf(" | restft: %i\n", resft);
+	resor = printf("CHAR %-10u a char: %-10u", 123456, 0);
 	printf(" | restor: %i\n", resor);
 
 	// !!!!!!!!!!!!!!!!!!! INVALID FLAGS IGNORED !!!!!!!!!!!!!!!
