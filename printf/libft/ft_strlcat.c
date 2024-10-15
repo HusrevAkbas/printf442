@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: huakbas <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: huakbas <huakbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 16:43:22 by huakbas           #+#    #+#             */
-/*   Updated: 2024/09/12 16:43:26 by huakbas          ###   ########.fr       */
+/*   Updated: 2024/10/15 15:45:19 by huakbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		i++;
 	j = 0;
 	while (src[j] && size - j > dst_length + 1)
-	{
 		dst[i++] = src[j++];
-	}
 	if (size != 0)
 		dst[i] = '\0';
 	if (size < dst_length)

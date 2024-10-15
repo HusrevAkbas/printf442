@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: huakbas <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: huakbas <huakbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 15:04:23 by huakbas           #+#    #+#             */
-/*   Updated: 2024/09/13 15:04:24 by huakbas          ###   ########.fr       */
+/*   Updated: 2024/10/15 15:41:54 by huakbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	s1_length = ft_strlen(s1);
 	s2_length = ft_strlen(s2);
-	pointer = malloc(s1_length + s2_length + 1);
+	pointer = (char *) malloc(s1_length + s2_length + 1);
 	if (pointer == NULL)
 		return (NULL);
 	i = 0;

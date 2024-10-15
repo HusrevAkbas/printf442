@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
+/*   By: huakbas <huakbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:25:49 by huakbas           #+#    #+#             */
-/*   Updated: 2024/10/13 23:10:50 by husrevakbas      ###   ########.fr       */
+/*   Updated: 2024/10/15 15:20:05 by huakbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*set_flags(char **checkpoint)
 		i++;
 		*checkpoint += 1;
 	}
-	while (**checkpoint == '.')
+	if (**checkpoint == '.')
 	{
 		flags[i] = '.';
 		i++;
