@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itobase.c                                       :+:      :+:    :+:   */
+/*   ft_itobase_uint.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
+/*   By: huakbas <huakbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 14:58:45 by huakbas           #+#    #+#             */
-/*   Updated: 2024/10/13 23:10:17 by husrevakbas      ###   ########.fr       */
+/*   Updated: 2024/10/15 13:16:20 by huakbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static void	ft_put(char *str, unsigned int nbr, const char *base, int i)
 	str[i] = base[remainder];
 }
 
-char	*ft_itobase(unsigned int nbr, const char *base)
+char	*ft_itobase_uint(unsigned int nbr, const char *base)
 {
 	char			*str;
 	unsigned int	base_length;

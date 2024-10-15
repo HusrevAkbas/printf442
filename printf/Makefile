@@ -6,13 +6,13 @@
 #    By: huakbas <huakbas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/05 17:57:44 by huakbas           #+#    #+#              #
-#    Updated: 2024/10/14 16:36:24 by huakbas          ###   ########.fr        #
+#    Updated: 2024/10/15 13:16:34 by huakbas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CFLAGS := -Wall -Wextra -Werror
 
-SRCFILES := ft_printf.c ft_handle_convertion_identifiers.c ft_itobase.c \
+SRCFILES := ft_printf.c ft_handle_convertion_identifiers.c ft_itobase_uint.c \
 ft_get_const.c ft_itobase_ul.c ft_handle_char.c ft_handle_int.c ft_handle_string.c \
 ft_handle_ulong.c ft_handle_uint.c ft_print_count.c\
 ft_set_flagged_str.c #for bonus

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_string.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
+/*   By: huakbas <huakbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 14:08:58 by husrevakbas       #+#    #+#             */
-/*   Updated: 2024/10/13 23:06:56 by husrevakbas      ###   ########.fr       */
+/*   Updated: 2024/10/15 13:14:03 by huakbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,13 @@
 void	ft_handle_string(char *flags, va_list args, int *res)
 {
 	char	*str_to_print;
+	char	*str;
 
-	(void) flags;
-	str_to_print = va_arg(args, char *);
-	if (str_to_print)
-	{
-		ft_putstr_fd(str_to_print, 1);
-		*res += ft_strlen(str_to_print);
-	}
+	str = va_arg(args, char *);
+	if (str)
+		str_to_print = ft_set_flagged_str(flags, str);
 	else
-	{
-		ft_putstr_fd("(null)", 1);
-		*res += 6;
-	}
+		str_to_print = ft_set_flagged_str(flags, "(null)");
+	ft_putstr_fd(str_to_print, 1);
+	*res += ft_strlen(str_to_print);
 }
