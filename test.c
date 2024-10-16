@@ -272,20 +272,20 @@ void	test_bonus_flags()
 	// resor = printf("PERCENT %-+015% a char: %+015%");
 	// printf(" | restor: %i\n", resor);
 	
-	resft = ft_printf(" %-1c %-2c %-3c ", '0', 0, '1');
-	printf(" | restft: %i\n", resft);
-	resor = printf(" %-1c %-2c %-3c ", '0', 0, '1');
-	printf(" | restor: %i\n", resor);
+	// resft = ft_printf("-%-1c-%-2c-%-3c-", '0', 0, '1');
+	// printf(" | restft: %i\n", resft);
+	// resor = printf("-%-1c-%-2c-%-3c-", '0', 0, '1');
+	// printf(" | restor: %i\n", resor);
 
-	resft = ft_printf("CHAR%-0+2ca char: %-0+5c", 0, 68);
-	printf(" | restft: %i\n", resft);
-	resor = printf("CHAR%-0+2ca char: %-0+5c", 0, 68);
-	printf(" | restor: %i\n", resor);
+	// resft = ft_printf("CHAR%-0+2ca char: %-0+5c", 0, 68);
+	// printf(" | restft: %i\n", resft);
+	// resor = printf("CHAR%-0+2ca char: %-0+5c", 0, 68);
+	// printf(" | restor: %i\n", resor);
 
-	resft = ft_printf("CHAR %+02c a char: %+05c", 66, 0);
-	printf(" | restft: %i\n", resft);
-	resor = printf("CHAR %+02c a char: %+05c", 66, 0);
-	printf(" | restor: %i\n", resor);
+	// resft = ft_printf("CHAR %+02c a char: %+05c", 66, 0);
+	// printf(" | restft: %i\n", resft);
+	// resor = printf("CHAR %+02c a char: %+05c", 66, 0);
+	// printf(" | restor: %i\n", resor);
 
 	//	START POINTERS
 	// resft = ft_printf("POINTER % +#010p a char: %+0 10p", string, 0);
@@ -326,15 +326,15 @@ void	test_bonus_flags()
 	// resor = printf("  INTEGER MAX % 015d a char: %+015d", INT_MAX, 0);
 	// printf(" | restor: %i\n", resor);
 
-	resft = ft_printf("+ INTEGER MAX %+ 015d a char: %+020d", INT_MAX, INT_MIN);
-	printf(" | restft: %i\n", resft);
-	resor = printf("+ INTEGER MAX %+ 015d a char: %+020d", INT_MAX, INT_MIN);
-	printf(" | restor: %i\n", resor);
+	// resft = ft_printf("+ INTEGER MAX %+ 015d a char: %+020d", INT_MAX, INT_MIN);
+	// printf(" | restft: %i\n", resft);
+	// resor = printf("+ INTEGER MAX %+ 015d a char: %+020d", INT_MAX, INT_MIN);
+	// printf(" | restor: %i\n", resor);
 
-	resft = ft_printf("+ 04 %05d a char: %04d", -15, -14);
-	printf(" | restft: %i\n", resft);
-	resor = printf("+ 04 %05d a char: %04d", -15, -14);
-	printf(" | restor: %i\n", resor);
+	// resft = ft_printf("+ 04 %05d a char: %04d", -15, -14);
+	// printf(" | restft: %i\n", resft);
+	// resor = printf("+ 04 %05d a char: %04d", -15, -14);
+	// printf(" | restor: %i\n", resor);
 
 	// resft = ft_printf("INTEGER MAX %+ 015d a char: %+015d", INT_MAX, 0);
 	// printf(" | restft: %i\n", resft);
@@ -359,15 +359,15 @@ void	test_bonus_flags()
 	//	END INTEGER d i FLAGS
 	//	START ULONG X
 
-	// resft = ft_printf("HEX UPPERCASE ULONGMAX %0+15X a char: %0+15X", ULONG_MAX, NULL);
-	// printf(" | restft: %i\n", resft);
-	// resor = printf("HEX UPPERCASE ULONGMAX %0+15X a char: %0+15X", ULONG_MAX, NULL);
-	// printf(" | restor: %i\n", resor);
+	resft = ft_printf("HEX ULONGMAX %#0+12X a char: %#0+12X", ULONG_MAX, NULL);
+	printf(" | restft: %i\n", resft);
+	resor = printf("HEX ULONGMAX %#0+12X a char: %#0+12X", ULONG_MAX, NULL);
+	printf(" | restor: %i\n", resor);
 
-	// resft = ft_printf("HEX UPPERCASE ULONGMAX %-0+15X a char: %+-015X", ULONG_MAX, NULL);
-	// printf(" | restft: %i\n", resft);
-	// resor = printf("HEX UPPERCASE ULONGMAX %-+015X a char: %-0+15X", ULONG_MAX, NULL);
-	// printf(" | restor: %i\n", resor);
+	resft = ft_printf("HEX ULONGMAX %#- +12X a char: %#+- 12X", ULONG_MAX, NULL);
+	printf(" | restft: %i\n", resft);
+	resor = printf("HEX ULONGMAX %-#+ 12X a char: %#- +12X", ULONG_MAX, NULL);
+	printf(" | restor: %i\n", resor);
 
 	// resft = ft_printf("HEX lowercase ULONGMAX %0+15x a char: %0+15x", ULONG_MAX, NULL);
 	// printf(" | restft: %i\n", resft);

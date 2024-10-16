@@ -6,13 +6,13 @@
 /*   By: huakbas <huakbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 20:06:34 by husrevakbas       #+#    #+#             */
-/*   Updated: 2024/10/15 15:51:46 by huakbas          ###   ########.fr       */
+/*   Updated: 2024/10/16 12:43:03 by huakbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*set_prefix(char *flags)
+static char	*set_prefix(char *flags)
 {
 	char	*prefix;
 	int		i;
