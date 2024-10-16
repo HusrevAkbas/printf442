@@ -6,7 +6,7 @@
 /*   By: huakbas <huakbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:25:55 by huakbas           #+#    #+#             */
-/*   Updated: 2024/10/16 12:56:28 by huakbas          ###   ########.fr       */
+/*   Updated: 2024/10/16 15:01:10 by huakbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,4 @@ int			ft_print_count(char *str);
 char		*ft_set_flagged_str(char *flags, char *str, char *prefix);
 char		*ft_set_zeropadded_str(char *flags, char *str, char *prefix);
 int			is_zeropad(char *flags);
+int			set_precision(char *flags);

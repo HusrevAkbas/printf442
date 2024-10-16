@@ -6,7 +6,7 @@
 /*   By: huakbas <huakbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 14:05:12 by husrevakbas       #+#    #+#             */
-/*   Updated: 2024/10/16 13:27:55 by huakbas          ###   ########.fr       */
+/*   Updated: 2024/10/16 15:12:14 by huakbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	is_zeropad(char *flags)
 	
 	i = 0;
 	res = 0;
+	if (ft_strchr(flags, '.'))
+		return (0);
 	while (ft_strchr(get_const("flags"), flags[i]))
 	{
 		if (flags[i] == '-')
@@ -44,15 +46,13 @@ void	ft_handle_int(char *flags, va_list args, int *res)
 		prefix = " ";
 	if (ft_strchr(flags, '+') && num >= 0)
 		prefix = "+";
-	if (is_zeropad(flags))
+	if (num < 0)
 	{
-		if(num_str[0] == '-')
-		{
-			prefix = "-";
-			ft_memmove(num_str, &num_str[1], ft_strlen(num_str));
-		}
-		str_to_print = ft_set_zeropadded_str(flags, num_str, prefix);
+		prefix = "-";
+		ft_memmove(num_str, &num_str[1], ft_strlen(num_str));
 	}
+	if (is_zeropad(flags))
+		str_to_print = ft_set_zeropadded_str(flags, num_str, prefix);
 	else
 		str_to_print = ft_set_flagged_str(flags, num_str, prefix);
 	if (str_to_print)

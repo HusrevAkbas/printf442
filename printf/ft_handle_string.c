@@ -6,23 +6,49 @@
 /*   By: huakbas <huakbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 14:08:58 by husrevakbas       #+#    #+#             */
-/*   Updated: 2024/10/15 15:52:02 by huakbas          ###   ########.fr       */
+/*   Updated: 2024/10/16 15:06:52 by huakbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+int	set_precision(char *flags)
+{
+	int	i;
+	int	precision;
+
+	i = 0;
+	precision = 0;
+	while (flags[i])
+	{
+		if (flags[i] == '.')
+			precision = ft_atoi(&flags[i + 1]);
+		i++;
+	}
+	return (precision);
+}
+
 void	ft_handle_string(char *flags, va_list args, int *res)
 {
 	char	*str_to_print;
 	char	*str;
+	char	*substr;
+	int		precision;
 
 	str = va_arg(args, char *);
+	precision = set_precision(flags);
 	if (str)
-		str_to_print = ft_set_flagged_str(flags, str, "");
+	{
+		if (ft_strchr(flags, '.') && precision < (int) ft_strlen(str))
+		{
+			substr = ft_substr(str, 0, precision);
+			str_to_print = ft_set_flagged_str(flags, substr, "");
+		}
+		else
+			str_to_print = ft_set_flagged_str(flags, str, "");
+	}
 	else
 		str_to_print = ft_set_flagged_str(flags, "(null)", "");
-	ft_putstr_fd(str_to_print, 1);
-	*res += ft_strlen(str_to_print);
+	*res += ft_print_count(str_to_print);
 	free(str_to_print);
 }

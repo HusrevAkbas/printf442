@@ -256,9 +256,9 @@ void	test_bonus_width_and_minus()
 	resor = printf("CHAR TWO DOTS CONSECUTIVELY %..c a char: %c", 67, 68);
 	printf(" | restor: %i\n", resor);
 
-	resft = ft_printf("CHAR THREE DOTS CONSECUTIVELY %...c a char: %c", 67, 68);
+	resft = ft_printf("CHAR THREE DOTS CONSECUTIVELY %+++...c a char: %c", 67, 68);
 	printf(" | restft: %i\n", resft);
-	resor = printf("CHAR THREE DOTS CONSECUTIVELY %...c a char: %c", 67, 68);
+	resor = printf("CHAR THREE DOTS CONSECUTIVELY %+++...c a char: %c", 67, 68);
 	printf(" | restor: %i\n", resor);
 
 	resft = ft_printf("CHAR THREE DOTS CONSECUTIVELY %..5. a char: %c", 67, 68);
@@ -269,6 +269,11 @@ void	test_bonus_width_and_minus()
 	resft = ft_printf("CHAR TWO DOTS NUMBER BETWEEN DOTS %.1.c a char: %c ", 67, 68);
 	printf(" | restft: %i\n", resft);
 	resor = printf("CHAR TWO DOTS NUMBER BETWEEN DOTS %.1.c a char: %c ", 67, 68);
+	printf(" | restor: %i\n", resor);
+
+	resft = ft_printf("CHAR TWO DOTS NUMBER BETWEEN DOTS .1.c a char: %");
+	printf(" | restft: %i\n", resft);
+	resor = printf("CHAR TWO DOTS NUMBER BETWEEN DOTS .1.c a char: %");
 	printf(" | restor: %i\n", resor);
 
 	printf("	!!!!!!!!!!!!!!!!!!! INVALID FLAGS IGNORED !!!!!!!!!!!!!!!	\n");
@@ -405,26 +410,51 @@ void	test_bonus_precision()
 	int resor;
 	//char *string = "char pointer";
 	
-	resft = ft_printf("HEX ULONGMAX %0 11.5x a char: %0 11.5x", INT_MIN, 123);
+	resft = ft_printf("x INT MIN %0 11.5x a char: %0 11.5x", INT_MIN, 123);
 	printf(" | restft: %i\n", resft);
-	resor = printf("HEX ULONGMAX %0 11.5x a char: %0 11.5x", INT_MIN, 123);
+	resor = printf("x INT MIN %0 11.5x a char: %0 11.5x", INT_MIN, 123);
 	printf(" | restor: %i\n", resor);
 
-	resft = ft_printf("HEX ULONGMAX %+ 20.15i a char: %+ 11.5i", INT_MIN, 123);
+	resft = ft_printf("i INT MIN %+ 13.15i a char: %+0 11.5i", INT_MIN, -123);
 	printf(" | restft: %i\n", resft);
-	resor = printf("HEX ULONGMAX %+ 20.15i a char: %+ 11.5i", INT_MIN, 123);
+	resor = printf("i INT MIN %+ 13.15i a char: %+0 11.5i", INT_MIN, -123);
 	printf(" | restor: %i\n", resor);
 
-	resft = ft_printf("HEX ULONGMAX %0 11.5x a char: %0 11.5x", INT_MIN, 123);
+	resft = ft_printf("i INT MIN - %+ -13.15i a char: %-+0 11.5i", INT_MIN, -123);
 	printf(" | restft: %i\n", resft);
-	resor = printf("HEX ULONGMAX %0 11.5x a char: %0 11.5x", INT_MIN, 123);
+	resor = printf("i INT MIN - %+ -13.15i a char: %-+0 11.5i", INT_MIN, -123);
 	printf(" | restor: %i\n", resor);
+
+	resft = ft_printf("i INT MAX %+ 13.15i a char: %+0 11.5i", INT_MAX, 123);
+	printf(" | restft: %i\n", resft);
+	resor = printf("i INT MAX %+ 13.15i a char: %+0 11.5i", INT_MAX, 123);
+	printf(" | restor: %i\n", resor);
+
+	resor = printf("x INT MAX %0# 11.12x a char: %0 11.12x", INT_MAX, 123);
+	printf(" | restor: %i\n", resor);
+	resft = ft_printf("x INT MAX %0# 11.12x a char: %0 11.12x", INT_MAX, 123);
+	printf(" | restft: %i\n", resft);
+
+	 resft = ft_printf("STRING: %0 8.4s a char: %0 8.2s", "STRING", "123");
+	 printf(" | restft: %i\n", resft);
+	 resor = printf("STRING: %0 8.4s a char: %0 8.2s", "STRING", "123");
+	 printf(" | restor: %i\n", resor);
+
+	 resft = ft_printf("STRING: %0 8.s a char: %0 8.0s", "STRING", "123");
+	 printf(" | restft: %i\n", resft);
+	 resor = printf("STRING: %0 8.s a char: %0 8.0s", "STRING", "123");
+	 printf(" | restor: %i\n", resor);
+
+	 resor = printf("STRING: %0 8.10s a char: %0 8.10s", "STRING", "123");
+	 printf(" | restor: %i\n", resor);
+	 resft = ft_printf("STRING: %0 8.10s a char: %0 8.10s", "STRING", "123");
+	 printf(" | restft: %i\n", resft);
 }
 int main(void)
 {
-	//test_main();
-	//test_bonus_width_and_minus();
-	//test_bonus_flags();
+	test_main();
+	test_bonus_width_and_minus();
+	test_bonus_flags();
 	test_bonus_precision();
 	return 0;
 }

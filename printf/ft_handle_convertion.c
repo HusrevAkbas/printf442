@@ -11,15 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-	//char	*str_to_print;
-	//char	handle_char[2];
-	// WILL BE ADDED IN CONVERTION HANDLERS
-	// check min field
-	// check precision
-	// check length modifier
-	// check conversion specifier
-	// convert
-	// write
 	// DONT FORGET TO COUNT PRINTED CHARS
 	// apply flags and print cspdiuxX%
 
