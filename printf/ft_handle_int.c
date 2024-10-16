@@ -6,7 +6,7 @@
 /*   By: huakbas <huakbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 14:05:12 by husrevakbas       #+#    #+#             */
-/*   Updated: 2024/10/15 18:50:45 by huakbas          ###   ########.fr       */
+/*   Updated: 2024/10/16 13:27:55 by huakbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_handle_int(char *flags, va_list args, int *res)
 		if(num_str[0] == '-')
 		{
 			prefix = "-";
-			ft_memmove(num_str, &num_str[1], ft_strlen(num_str) + 1);
+			ft_memmove(num_str, &num_str[1], ft_strlen(num_str));
 		}
 		str_to_print = ft_set_zeropadded_str(flags, num_str, prefix);
 	}

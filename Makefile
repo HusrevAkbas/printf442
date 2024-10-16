@@ -3,15 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: huakbas <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: huakbas <huakbas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/05 15:24:31 by huakbas           #+#    #+#              #
-#    Updated: 2024/10/05 15:24:34 by huakbas          ###   ########.fr        #
+#    Updated: 2024/10/16 13:35:34 by huakbas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS := -Wall -Wextra
-
+CFLAGS :=
 PRINTF := printf
 
 TARGET := test

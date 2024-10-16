@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_handle_ulong.c                                  :+:      :+:    :+:   */
+/*   ft_handle_pointer.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: huakbas <huakbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -27,7 +27,7 @@ static char	*set_prefix(char *flags)
 	return (prefix);
 }
 
-void	ft_handle_ulong(char *flags, va_list args, int *res)
+void	ft_handle_pointer(char *flags, va_list args, int *res)
 {
 	char			*str_to_print;
 	unsigned long	i;

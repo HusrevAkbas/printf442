@@ -6,7 +6,7 @@
 /*   By: huakbas <huakbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 20:13:50 by husrevakbas       #+#    #+#             */
-/*   Updated: 2024/10/16 12:48:08 by huakbas          ###   ########.fr       */
+/*   Updated: 2024/10/16 13:14:17 by huakbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ static char	*set_prefix(char *flags)
 {
 	if (ft_strchr(flags, 'x'))
 		return ("0x");
-	else
+	else if (ft_strchr(flags, 'X'))
 		return ("0X");
+	return ("");
 }
 void	ft_handle_uint(char *flags, va_list args, int *res, const char *base)
 {
@@ -28,10 +29,10 @@ void	ft_handle_uint(char *flags, va_list args, int *res, const char *base)
 
 	num = va_arg(args, unsigned int);
 	num_str = ft_itobase_uint(num, base);
-	if (num == 0)
-		prefix = "";
-	else
+	if (ft_strchr(flags, '#') && num != 0)
 		prefix = set_prefix(flags);
+	else
+		prefix = "";
 	if (is_zeropad(flags))
 		str_to_print = ft_set_zeropadded_str(flags, num_str, prefix);
 	else

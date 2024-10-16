@@ -6,7 +6,7 @@
 /*   By: huakbas <huakbas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:25:55 by huakbas           #+#    #+#             */
-/*   Updated: 2024/10/15 15:47:08 by huakbas          ###   ########.fr       */
+/*   Updated: 2024/10/16 12:56:28 by huakbas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char		*ft_itobase_ul(unsigned long nbr, const char *base);
 void		ft_handle_char(char *flags, va_list args, int *res);
 void		ft_handle_int(char *flags, va_list args, int *res);
 void		ft_handle_string(char *flags, va_list args, int *res);
-void		ft_handle_ulong(char *flags, va_list args, int *res);
+void		ft_handle_pointer(char *flags, va_list args, int *res);
 void		ft_handle_uint(char *f, va_list a, int *r, const char *b);
 int			ft_print_count(char *str);
 char		*ft_set_flagged_str(char *flags, char *str, char *prefix);

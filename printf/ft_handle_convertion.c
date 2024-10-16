@@ -34,7 +34,7 @@ void	ft_handle_convertion(char *flags, va_list args, int *res)
 	if (ft_strchr(flags, 's'))
 		ft_handle_string(flags, args, res);
 	if (ft_strchr(flags, 'p'))
-		ft_handle_ulong(flags, args, res);
+		ft_handle_pointer(flags, args, res);
 	if (ft_strchr(flags, 'u'))
 		ft_handle_uint(flags, args, res, get_const("decimal"));
 	if (ft_strchr(flags, 'x'))
