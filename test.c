@@ -399,10 +399,32 @@ void	test_bonus_flags()
 	
 	printf("\n		BONUS + SPACE # END		\n\n");
 }
+void	test_bonus_precision()
+{
+	int resft;
+	int resor;
+	//char *string = "char pointer";
+	
+	resft = ft_printf("HEX ULONGMAX %0 11.5x a char: %0 11.5x", INT_MIN, 123);
+	printf(" | restft: %i\n", resft);
+	resor = printf("HEX ULONGMAX %0 11.5x a char: %0 11.5x", INT_MIN, 123);
+	printf(" | restor: %i\n", resor);
+
+	resft = ft_printf("HEX ULONGMAX %+ 20.15i a char: %+ 11.5i", INT_MIN, 123);
+	printf(" | restft: %i\n", resft);
+	resor = printf("HEX ULONGMAX %+ 20.15i a char: %+ 11.5i", INT_MIN, 123);
+	printf(" | restor: %i\n", resor);
+
+	resft = ft_printf("HEX ULONGMAX %0 11.5x a char: %0 11.5x", INT_MIN, 123);
+	printf(" | restft: %i\n", resft);
+	resor = printf("HEX ULONGMAX %0 11.5x a char: %0 11.5x", INT_MIN, 123);
+	printf(" | restor: %i\n", resor);
+}
 int main(void)
 {
-	test_main();
-	test_bonus_width_and_minus();
-	test_bonus_flags();
+	//test_main();
+	//test_bonus_width_and_minus();
+	//test_bonus_flags();
+	test_bonus_precision();
 	return 0;
 }
