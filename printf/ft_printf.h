@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include <stdio.h>
-#include <stdarg.h>
-#include <limits.h>
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+# include "libft/libft.h"
+# include <stdarg.h>
+# include <limits.h>
 
 int			ft_printf(const char *format, ...);
 void		ft_handle_convertion(char *flags, va_list args, int *res);
@@ -30,3 +31,4 @@ char		*ft_set_flagged_str(char *flags, char *str, char *prefix);
 char		*ft_set_zeropadded_str(char *flags, char *str, char *prefix);
 int			is_zeropad(char *flags);
 int			set_precision(char *flags);
+#endif // FT_PRINTF_H
