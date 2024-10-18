@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_set_zeropadded_str.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: huakbas <huakbas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 16:23:46 by huakbas           #+#    #+#             */
-/*   Updated: 2024/10/15 18:53:40 by huakbas          ###   ########.fr       */
+/*   Updated: 2024/10/18 18:33:47 by husrevakbas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,5 @@ char	*ft_set_zeropadded_str(char *flags, char *str, char *prefix)
 	ft_memset(str_new, '0', width);
 	ft_memcpy(str_new + width - length_str, str, length_str);
 	ft_memcpy(str_new, prefix, length_prefix);
-	if (str[0] == 0)
-		str_new[width] = 0;
 	return (str_new);
 }

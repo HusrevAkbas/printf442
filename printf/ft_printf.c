@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: huakbas <huakbas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:25:49 by huakbas           #+#    #+#             */
-/*   Updated: 2024/10/16 16:38:46 by huakbas          ###   ########.fr       */
+/*   Updated: 2024/10/18 18:42:16 by husrevakbas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ char	*set_flags(char **checkpoint)
 {
 	char	*flags;
 	int		i;
-	char	*set_back_checkpoint;
 
-	set_back_checkpoint = *checkpoint;
 	flags = ft_calloc(50, 1);
 	if (flags == NULL)
 		return (NULL);
@@ -90,7 +88,7 @@ void	print_substr(char *format, char **checkpoint, int *res)
 
 	str = ft_substr(format, 0, *checkpoint - format);
 	*checkpoint += 1;
-	*res += ft_print_count(str);
+	*res += write(1, str, ft_strlen(str));
 	free(str);
 }
 
@@ -104,7 +102,7 @@ void	check_flags_handle(char **checkpoint, va_list args, int *res)
 	if (check_str_has_char(flags, get_const("con_id")))
 		ft_handle_convertion(flags, args, res);
 	else
-		*res += ft_print_count("%");
+		*res += write(1, "%", 1);
 	free(flags);
 }
 
@@ -122,7 +120,7 @@ int	ft_printf(const char *format, ...)
 	{
 		checkpoint = ft_strchr(format, '%');
 		if (!checkpoint)
-			return (res += ft_print_count((char *) format));
+			return (res += write(1, (char *) format, ft_strlen(format)));
 		print_substr((char *) format, &checkpoint, &res);
 		check_flags_handle(&checkpoint, args, &res);
 		format = checkpoint;

@@ -14,6 +14,11 @@ void	test_main()
 	resor = printf("CHAR %c a char: %c ", 67, 68);
 	printf(" | restor: %i\n", resor);
 
+	resft = ft_printf("CHAR %c a char: %c ", 'ü', 'ß');
+	printf(" | restft: %i\n", resft);
+	resor = printf("CHAR %c a char: %c ", 'ü', 'ß');
+	printf(" | restor: %i\n", resor);
+
 	resft = ft_printf("CHAR null %c a char: %c ", 0, NULL);
 	printf(" | restft: %i\n", resft);
 	resor = printf("CHAR null %c a char: %c ", 0, NULL);

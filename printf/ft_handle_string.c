@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_string.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: huakbas <huakbas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 14:08:58 by husrevakbas       #+#    #+#             */
-/*   Updated: 2024/10/16 17:26:45 by huakbas          ###   ########.fr       */
+/*   Updated: 2024/10/18 18:44:15 by husrevakbas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ void	ft_handle_string(char *flags, va_list args, int *res)
 	}
 	else
 		str_to_print = ft_set_flagged_str(flags, "(null)", "");
-	*res += ft_print_count(str_to_print);
+	*res += write(1, str_to_print, ft_strlen(str_to_print));
 	free(str_to_print);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_handle_char.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: huakbas <huakbas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 13:56:21 by husrevakbas       #+#    #+#             */
-/*   Updated: 2024/10/16 13:46:44 by huakbas          ###   ########.fr       */
+/*   Updated: 2024/10/18 18:59:41 by husrevakbas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,20 @@
 
 void	ft_handle_char(char *flags, va_list args, int *res)
 {
-	char	char_and_null[2];
+	unsigned char	the_char;
 	char	*newstr;
 
-	char_and_null[0] = va_arg(args, int);
-	char_and_null[1] = 0;
-	newstr = ft_set_flagged_str(flags, char_and_null, "");
-	if (char_and_null[0] == 0)
+	the_char = (unsigned char) va_arg(args, int);
+	newstr = ft_set_flagged_str(flags, "", "");
+	if (ft_strchr(flags, '-'))
 	{
-		write(1, "\0", 1);
-		*res += ft_print_count(newstr) + 1;
+		write(1, &the_char, 1);
+		*res += write(1, newstr, ft_strlen(newstr)) + 1;
 	}
 	else
-		*res += ft_print_count(newstr);
+	{
+		*res += write(1, newstr, ft_strlen(newstr)) + 1;
+		write(1, &the_char, 1);
+	}
 	free(newstr);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: huakbas <huakbas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:25:55 by huakbas           #+#    #+#             */
-/*   Updated: 2024/10/16 15:01:10 by huakbas          ###   ########.fr       */
+/*   Updated: 2024/10/18 18:40:30 by husrevakbas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void		ft_handle_int(char *flags, va_list args, int *res);
 void		ft_handle_string(char *flags, va_list args, int *res);
 void		ft_handle_pointer(char *flags, va_list args, int *res);
 void		ft_handle_uint(char *f, va_list a, int *r, const char *b);
-int			ft_print_count(char *str);
 char		*ft_set_flagged_str(char *flags, char *str, char *prefix);
 char		*ft_set_zeropadded_str(char *flags, char *str, char *prefix);
 int			is_zeropad(char *flags);

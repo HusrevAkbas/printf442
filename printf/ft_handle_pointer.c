@@ -15,9 +15,7 @@
 static char	*set_prefix(char *flags)
 {
 	char	*prefix;
-	int		i;
 
-	i = 0;
 	prefix = "";
 	if (ft_strchr(flags, ' '))
 		prefix = " ";
