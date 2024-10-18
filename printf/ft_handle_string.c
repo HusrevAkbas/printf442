@@ -6,7 +6,7 @@
 /*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 14:08:58 by husrevakbas       #+#    #+#             */
-/*   Updated: 2024/10/18 18:44:15 by husrevakbas      ###   ########.fr       */
+/*   Updated: 2024/10/18 23:13:43 by husrevakbas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_handle_string(char *flags, va_list args, int *res)
 	{
 		if (ft_strchr(flags, '.') && precision < (int) ft_strlen(str))
 		{
-			substr = ft_substr(str, 0, precision);
+			substr = (char *) ft_substr(str, 0, precision);
 			str_to_print = ft_set_flagged_str(flags, substr, "");
 			free(substr);
 		}

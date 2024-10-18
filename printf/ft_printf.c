@@ -6,67 +6,11 @@
 /*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:25:49 by huakbas           #+#    #+#             */
-/*   Updated: 2024/10/18 18:42:16 by husrevakbas      ###   ########.fr       */
+/*   Updated: 2024/10/18 23:40:01 by husrevakbas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-/*
-	1) Each conversion specification is introduced by the character %, and ends
-	with a conversion specifier.
-	2) In between there may be (in this order)
-		1- zero or more flags,				-0. #+
-		2- an optional minimum field width,	any positiv number
-		3- an optional precision and 		THE '.' FLAG IN 1. RULE
-		4- an optional length modifier.		NOT INCLUDED
-		5- convertion identifiers			cspdiuxX%
-*/
-
-char	*set_flags(char **checkpoint)
-{
-	char	*flags;
-	int		i;
-
-	flags = ft_calloc(50, 1);
-	if (flags == NULL)
-		return (NULL);
-	i = 0;
-	while (ft_strchr(get_const("flags"), **checkpoint))
-	{
-		if (!ft_strchr(flags, **checkpoint))
-		{
-			flags[i] = **checkpoint;
-			i++;
-		}
-		*checkpoint += 1;
-	}
-	while (ft_isdigit(**checkpoint))
-	{
-		flags[i] = **checkpoint;
-		i++;
-		*checkpoint += 1;
-	}
-	if (**checkpoint == '.')
-	{
-		flags[i] = '.';
-		i++;
-		*checkpoint += 1;
-	}
-	while (ft_isdigit(**checkpoint))
-	{
-		flags[i] = **checkpoint;
-		i++;
-		*checkpoint += 1;
-	}
-	if (ft_strchr(get_const("con_id"), **checkpoint))
-	{
-		flags[i] = **checkpoint;
-		i++;
-		*checkpoint += 1;
-	}
-	return (flags);
-}
 
 int	check_str_has_char(char *flags, const char *con_spec)
 {
@@ -95,14 +39,20 @@ void	print_substr(char *format, char **checkpoint, int *res)
 void	check_flags_handle(char **checkpoint, va_list args, int *res)
 {
 	char	*flags;
+	char	*set_back_checkpoint;
 
+	set_back_checkpoint = *checkpoint;
 	flags = (char *) set_flags(checkpoint);
+	*checkpoint += 1;
 	if (flags == NULL)
 		return ;
 	if (check_str_has_char(flags, get_const("con_id")))
 		ft_handle_convertion(flags, args, res);
 	else
+	{
 		*res += write(1, "%", 1);
+		*checkpoint = set_back_checkpoint;
+	}
 	free(flags);
 }
 

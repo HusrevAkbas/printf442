@@ -6,7 +6,7 @@
 /*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 16:23:46 by huakbas           #+#    #+#             */
-/*   Updated: 2024/10/18 18:49:27 by husrevakbas      ###   ########.fr       */
+/*   Updated: 2024/10/19 00:23:58 by husrevakbas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_set_flagged_str(char *flags, char *str, char *prefix)
 		width = len_str + len_pfix;
 	if (precision + len_pfix > width && !ft_strchr(flags, 's'))
 		width = precision + len_pfix;
-	if (ft_strchr(flags, 'c') && str[0] == 0 && width > 0)
+	if (ft_strchr(flags, 'c') && width > 0)
 		width--;
 	str_new = ft_calloc(width + 1, sizeof(char));
 	if (str_new == NULL)

@@ -275,6 +275,11 @@ void	test_bonus_width_and_minus()
 	printf(" | restft: %i\n", resft);
 	resor = printf("CHAR TWO DOTS NUMBER BETWEEN DOTS %.1.c a char: %c ", 67, 68);
 	printf(" | restor: %i\n", resor);
+	
+	// resft = ft_printf("%-1k%-2k%-+0 #5k", '0', 0, '1');
+	// printf(" | restft: %i\n", resft);
+	// resor = printf("%-1k%-2k%-+0 #5k", '0', 0, '1');
+	// printf(" | restor: %i\n", resor);
 
 	resft = ft_printf("CHAR TWO DOTS NUMBER BETWEEN DOTS .1.c a char: %");
 	printf(" | restft: %i\n", resft);
@@ -294,10 +299,10 @@ void	test_bonus_flags()
 
 	printf("\n		BONUS + SPACE # START		\n\n");
 
-	resft = ft_printf("PERCENT % -0+15% a char: % +015%");
-	printf(" | restft: %i\n", resft);
-	resor = printf("PERCENT % -+015% a char: % +015%");
-	printf(" | restor: %i\n", resor);
+	// resft = ft_printf("PERCENT % -0+15% a char: % +015%");
+	// printf(" | restft: %i\n", resft);
+	// resor = printf("PERCENT % -+015% a char: % +015%");
+	// printf(" | restor: %i\n", resor);
 	
 	resft = ft_printf("%-1c%-2c%-3c", '0', 0, '1');
 	printf(" | restft: %i\n", resft);
@@ -415,9 +420,9 @@ void	test_bonus_precision()
 	int resor;
 	//char *string = "char pointer";
 	
-	resft = ft_printf("x INT MIN %0 11.5x a char: %0 11.5x", INT_MIN, 123);
+	resft = ft_printf("x INT MIN %++0011.5x a char: %0 11.5x", INT_MIN, 123);
 	printf(" | restft: %i\n", resft);
-	resor = printf("x INT MIN %0 11.5x a char: %0 11.5x", INT_MIN, 123);
+	resor = printf("x INT MIN %++0011.5x a char: %0 11.5x", INT_MIN, 123);
 	printf(" | restor: %i\n", resor);
 
 	resft = ft_printf("i INT MIN %+ 13.15i a char: %+0 11.5i", INT_MIN, -123);

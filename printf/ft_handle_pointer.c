@@ -21,7 +21,7 @@ static char	*set_prefix(char *flags)
 		prefix = " ";
 	if (ft_strchr(flags, '+'))
 		prefix = "+";
-	prefix = ft_strjoin(prefix, "0x");
+	prefix = (char *) ft_strjoin(prefix, "0x");
 	return (prefix);
 }
 
@@ -36,8 +36,7 @@ void	ft_handle_pointer(char *flags, va_list args, int *res)
 	if (i == 0)
 	{
 		str_to_print = ft_set_flagged_str(flags, "(nil)", "");
-		ft_putstr_fd(str_to_print, 1);
-		*res += ft_strlen(str_to_print);
+		*res += write(1, str_to_print, ft_strlen(str_to_print));
 	}
 	else
 	{
@@ -47,8 +46,7 @@ void	ft_handle_pointer(char *flags, va_list args, int *res)
 			str_to_print = ft_set_zeropadded_str(flags, num_str, prefix);
 		else
 			str_to_print = ft_set_flagged_str(flags, num_str, prefix);
-		ft_putstr_fd(str_to_print, 1);
-		*res += ft_strlen(str_to_print);
+		*res += write(1, str_to_print, ft_strlen(str_to_print));
 		free(prefix);
 		free(num_str);
 	}

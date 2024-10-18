@@ -6,7 +6,7 @@
 /*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:25:55 by huakbas           #+#    #+#             */
-/*   Updated: 2024/10/18 18:40:30 by husrevakbas      ###   ########.fr       */
+/*   Updated: 2024/10/19 00:02:33 by husrevakbas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "libft/libft.h"
 # include <stdarg.h>
 # include <limits.h>
+# include <stdio.h> // DELETE THIS LINE
 
 int			ft_printf(const char *format, ...);
 void		ft_handle_convertion(char *flags, va_list args, int *res);
@@ -30,4 +31,6 @@ char		*ft_set_flagged_str(char *flags, char *str, char *prefix);
 char		*ft_set_zeropadded_str(char *flags, char *str, char *prefix);
 int			is_zeropad(char *flags);
 int			set_precision(char *flags);
+char		*set_flags(char **checkpoint);
+
 #endif // FT_PRINTF_H
