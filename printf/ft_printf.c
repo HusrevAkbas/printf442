@@ -6,25 +6,11 @@
 /*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:25:49 by huakbas           #+#    #+#             */
-/*   Updated: 2024/10/20 00:54:22 by husrevakbas      ###   ########.fr       */
+/*   Updated: 2024/10/20 00:58:44 by husrevakbas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	check_str_has_char(char *flags, const char *con_spec)
-{
-	int	i;
-
-	i = 0;
-	while (flags[i])
-	{
-		if (ft_strchr(con_spec, flags[i]))
-			return (1);
-		i++;
-	}
-	return (0);
-}
 
 void	print_substr(char *format, char **checkpoint, int *res)
 {
@@ -46,7 +32,7 @@ void	check_flags_handle(char **checkpoint, va_list args, int *res)
 	*checkpoint += 1;
 	if (flags == NULL)
 		return ;
-	if (check_str_has_char(flags, get_const("con_id")))
+	if (*flags && ft_strchr(get_const("con_id"), flags[ft_strlen(flags) - 1]))
 		ft_handle_convertion(flags, args, res);
 	else
 	{
