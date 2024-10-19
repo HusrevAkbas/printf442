@@ -6,7 +6,7 @@
 /*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:25:49 by huakbas           #+#    #+#             */
-/*   Updated: 2024/10/18 23:40:01 by husrevakbas      ###   ########.fr       */
+/*   Updated: 2024/10/20 00:54:22 by husrevakbas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,3 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (res);
 }
-
-// int main(void)
-// {
-// 	char **words = ft_split("keiua meiak eiau", ' ');
-// 	int	i = 0;
-// 	while (words[i])
-// 	{
-// 		printf("%s\n", (char *) words[i]);
-// 	}
-// 	return 0;
-// }
