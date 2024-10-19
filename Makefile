@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: huakbas <huakbas@student.42.fr>            +#+  +:+       +#+         #
+#    By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/05 15:24:31 by huakbas           #+#    #+#              #
-#    Updated: 2024/10/16 13:35:34 by huakbas          ###   ########.fr        #
+#    Updated: 2024/10/20 00:32:45 by husrevakbas      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,10 @@ PRINTF := printf
 
 TARGET := test
 
-SRC := $(wildcard test*/*.c)# $(wildcard tests_bonus/*.c)
+SRC := $(wildcard test*/*.c)
 
 all:
 	$(MAKE) -C ${PRINTF} all
-#	valgrind -s --leak-check=full --show-leak-kinds=all 
 	cc -g ${CFLAGS} ${SRC} test.c -L ${PRINTF} -lftprintf -o ${TARGET}
 	./${TARGET}
 
@@ -41,13 +40,3 @@ val:
 
 run:
 	./${TARGET}
-
-
-#BONUSFILES := $(wildcard *bonus.c)
-#SRCFILES := $(wildcard ft*.c)
-
-#%.o : %.c
-#	cc -c $(CFLAGS) $< -o $@
-
-#libft: $(SRCFILES) clean
-#	cc $(CFLAGS) -c $(SRCFILES) -o %.o

@@ -6,7 +6,7 @@
 /*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 18:25:55 by huakbas           #+#    #+#             */
-/*   Updated: 2024/10/19 00:02:33 by husrevakbas      ###   ########.fr       */
+/*   Updated: 2024/10/20 00:22:41 by husrevakbas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void		ft_handle_uint(char *f, va_list a, int *r, const char *b);
 char		*ft_set_flagged_str(char *flags, char *str, char *prefix);
 char		*ft_set_zeropadded_str(char *flags, char *str, char *prefix);
 int			is_zeropad(char *flags);
-int			set_precision(char *flags);
+int			get_precision(char *flags);
 char		*set_flags(char **checkpoint);
 
 #endif // FT_PRINTF_H
