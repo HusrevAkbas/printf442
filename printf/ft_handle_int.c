@@ -6,7 +6,7 @@
 /*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 14:05:12 by husrevakbas       #+#    #+#             */
-/*   Updated: 2024/10/18 23:06:42 by husrevakbas      ###   ########.fr       */
+/*   Updated: 2024/10/20 00:16:12 by husrevakbas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	is_zeropad(char *flags)
 {
 	int	i;
 	int	res;
-	
+
 	i = 0;
 	res = 0;
 	if (ft_strchr(flags, '.'))
@@ -56,7 +56,7 @@ void	ft_handle_int(char *flags, va_list args, int *res)
 	else
 		str_to_print = ft_set_flagged_str(flags, num_str, prefix);
 	if (str_to_print)
-		*res += write(1, str_to_print, ft_strlen(str_to_print)) ;
+		*res += write(1, str_to_print, ft_strlen(str_to_print));
 	free(num_str);
 	free(str_to_print);
 }

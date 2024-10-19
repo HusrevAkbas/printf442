@@ -6,7 +6,7 @@
 /*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 20:13:50 by husrevakbas       #+#    #+#             */
-/*   Updated: 2024/10/18 18:44:43 by husrevakbas      ###   ########.fr       */
+/*   Updated: 2024/10/20 00:17:07 by husrevakbas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ static char	*set_prefix(char *flags)
 		return ("0X");
 	return ("");
 }
+
 void	ft_handle_uint(char *flags, va_list args, int *res, const char *base)
 {
-	char	*str_to_print;
-	char	*num_str;
-	char	*prefix;
+	char			*str_to_print;
+	char			*num_str;
+	char			*prefix;
 	unsigned int	num;
 
 	num = va_arg(args, unsigned int);

@@ -6,7 +6,7 @@
 /*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 16:23:46 by huakbas           #+#    #+#             */
-/*   Updated: 2024/10/18 18:33:47 by husrevakbas      ###   ########.fr       */
+/*   Updated: 2024/10/20 00:17:35 by husrevakbas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_set_zeropadded_str(char *flags, char *str, char *prefix)
 		i++;
 	width = ft_atoi(&flags[i]);
 	if (width < length_str + length_prefix)
-		return (ft_set_flagged_str(flags , str, prefix));
+		return (ft_set_flagged_str(flags, str, prefix));
 	str_new = ft_calloc(width + 1, sizeof(char));
 	if (str_new == NULL)
 		return (NULL);

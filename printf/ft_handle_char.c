@@ -6,7 +6,7 @@
 /*   By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 13:56:21 by husrevakbas       #+#    #+#             */
-/*   Updated: 2024/10/18 18:59:41 by husrevakbas      ###   ########.fr       */
+/*   Updated: 2024/10/20 00:15:20 by husrevakbas      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_handle_char(char *flags, va_list args, int *res)
 {
 	unsigned char	the_char;
-	char	*newstr;
+	char			*newstr;
 
 	the_char = (unsigned char) va_arg(args, int);
 	newstr = ft_set_flagged_str(flags, "", "");
