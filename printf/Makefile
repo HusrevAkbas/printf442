@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: husrevakbas <husrevakbas@student.42.fr>    +#+  +:+       +#+         #
+#    By: huakbas <huakbas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/05 17:57:44 by huakbas           #+#    #+#              #
-#    Updated: 2024/10/18 23:39:33 by husrevakbas      ###   ########.fr        #
+#    Updated: 2024/10/21 12:36:57 by huakbas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,10 +31,13 @@ LFTOBJECTFILES = libft/*.o
 
 all: ${NAME}
 
-bonus: ${NAME}
+bonus: ${NAME} checkbonus
 
 ${NAME} : ${OBJECTFILES} ${LIBFTA}
 	ar rcs $@ ${OBJECTFILES} ${LFTOBJECTFILES}
+
+checkbonus : ${NAME}
+	touch checkbonus
 
 ${LIBFTA} :
 	${MAKE} -C ${LIBFT} bonus extract
@@ -56,7 +59,7 @@ clean:
 
 fclean: clean
 	${MAKE} -C ${LIBFT} fclean
-	rm -f $(NAME)
+	rm -f $(NAME) checkbonus
 	
 re: fclean all
 

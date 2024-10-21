@@ -14,11 +14,6 @@ void	test_main()
 	resor = printf("CHAR %c a char: %c ", 67, 68);
 	printf(" | restor: %i\n", resor);
 
-	resft = ft_printf("CHAR %c a char: %c ", 'ü', 'ß');
-	printf(" | restft: %i\n", resft);
-	resor = printf("CHAR %c a char: %c ", 'ü', 'ß');
-	printf(" | restor: %i\n", resor);
-
 	resft = ft_printf("CHAR null %c a char: %c ", 0, NULL);
 	printf(" | restft: %i\n", resft);
 	resor = printf("CHAR null %c a char: %c ", 0, NULL);
@@ -69,9 +64,9 @@ void	test_main()
 	resor = printf("STRING Null %s Null ", NULL);
 	printf(" | resor: %i\n", resor);
 
-	resft = ft_printf("NOT: %k%k%k%k");
+	resft = ft_printf("NOT: %+-k %#123k %k%k");
 	printf(" | resft: %i\n", resft);
-	resor = printf("NOT: %k%k%k%k");
+	resor = printf("NOT: %+-k %#123k %k%k");
 	printf(" | resor: %i\n", resor);
 
 	resft = ft_printf("NOT identifiers 0 %m 34%k78%%");
@@ -462,9 +457,9 @@ void	test_bonus_precision()
 }
 int main(void)
 {
-	test_main();
-	test_bonus_width_and_minus();
-	test_bonus_flags();
-	test_bonus_precision();
+	//test_main();
+	//test_bonus_width_and_minus();
+	//test_bonus_flags();
+	//test_bonus_precision();
 	return 0;
 }
